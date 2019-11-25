@@ -1,0 +1,26 @@
+{
+  "name": "c-and-j-towing",
+  "version": "1.0.0",
+  "description": "Website for C&amp;J Towing and Recovery",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tap52384/c-and-j-towing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tap52384/c-and-j-towing/issues"
+  },
+  "homepage": "https://github.com/tap52384/c-and-j-towing#readme"
+}
