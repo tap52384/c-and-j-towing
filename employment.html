@@ -109,29 +109,29 @@
                             <div class="form-row mb-2">
                                 <div class="col">
                                     <label for="first-name" class="font-weight-bold">First Name</label>
-                                    <input type="text" class="form-control" placeholder="First name" id="first-name" />
+                                    <input type="text" class="form-control" id="first-name" autocomplete="given-name" />
                                 </div>
                                 <div class="col">
                                     <label for="last-name" class="font-weight-bold">Last Name</label>
-                                    <input type="text" class="form-control" placeholder="Last name" id="last-name" />
+                                    <input type="text" class="form-control" id="last-name" autocomplete="family-name" />
                                 </div>
                             </div>
                             <div class="form-group">
                                     <label for="inputAddress" class="font-weight-bold">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
+                                    <input type="text" class="form-control" id="inputAddress" autocomplete="street-address" />
                                   </div>
                                   <div class="form-group">
                                     <label for="inputAddress2">Address Line 2 (optional)</label>
-                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
+                                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment number" autocomplete="address-line2" />
                                   </div>
                                   <div class="form-row">
                                         <div class="form-group col-md-6">
                                           <label for="inputCity" class="font-weight-bold">City</label>
-                                          <input type="text" class="form-control" id="inputCity">
+                                          <input type="text" class="form-control" id="inputCity" autocomplete="address-level2">
                                         </div>
                                         <div class="form-group col-md-4">
                                           <label for="inputState">State</label>
-                                          <select id="inputState" class="form-control">
+                                          <select id="inputState" class="form-control" autocomplete="address-level1">
                                             <option value="" selected>Choose...</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AK">Alaska</option>
@@ -196,7 +196,7 @@
                                         </div>
                                         <div class="form-group col-md-2">
                                           <label for="inputZip">Zip</label>
-                                          <input type="text" class="form-control" id="inputZip">
+                                          <input type="text" class="form-control" id="inputZip" autocomplete="postal-code">
                                         </div>
                                       </div>
                                       <div class="form-group">
@@ -205,12 +205,12 @@
                                           </div>
                                           <div class="form-group">
                                             <label for="phone-number" class="font-weight-bold">Phone Number</label>
-                                            <input type="tel" class="form-control" id="phone-number" required title="(123) 456-7890" />
+                                            <input type="tel" class="form-control" id="phone-number" required title="(123) 456-7890" autocomplete="tel" />
                                           </div>
                                           <div class="form-row mb-2">
                                                 <div class="col">
                                                     <label for="dob" class="font-weight-bold">Date of Birth</label>
-                                                    <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" required />
+                                                    <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" autocomplete="bday" required />
                                                 </div>
                                                 <div class="col">
                                                         <label for="desired-position" class="font-weight-bold">Do you have a valid Driver's License?</label>
