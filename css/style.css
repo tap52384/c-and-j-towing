@@ -31,6 +31,11 @@ a.navbar-brand img {
 
 footer {
     background-color: var(--main-bg-color);
+    color: #fff;
+}
+
+footer hr {
+    color: #fff;
 }
 
 #home-intro {
@@ -68,4 +73,10 @@ footer {
 .btn-cj:hover {
     background-color: #851f1f;
     border-color: #7d1d1d;
+}
+
+.second-content-row .img-fluid {
+    margin: 0 auto;
+    height: 9em;
+    display: block;
 }
