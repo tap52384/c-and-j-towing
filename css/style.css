@@ -7,6 +7,10 @@ body {
     padding-top: 6.6rem;
 }
 
+.text-cj {
+    color: var(--main-bg-color);
+}
+
 #top-nav {
     background-color: var(--main-bg-color);
 }
