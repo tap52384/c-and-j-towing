@@ -38,13 +38,17 @@ footer hr {
     color: #fff;
 }
 
-#home-intro {
+.intro {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url("../img/main_back_sample1.jpg");
     background-size: cover;
     color: #fff;
-    min-height: 28em;
+    min-height: 12em;
     text-align: center;
+}
+
+#home-intro {
+    min-height: 28em;
 }
 
 #home-intro h2 {
