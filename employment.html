@@ -11,7 +11,7 @@
     <!-- Font Awesome 4.7.0 CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker3.min.css" />
 
     <link rel="stylesheet" href="css/style.css" />
 
@@ -82,12 +82,7 @@
                                         </a>
                             </li>
                             <li class="mr-2">
-                                    <a href="#" title="Twitter">
-                                            <i class="fa-2x fa fa-twitter "></i>
-                                    </a>
-                            </li>
-                            <li class="mr-2">
-                                    <a href="#" title="Instagram">
+                                    <a href="https://www.instagram.com/cjtowingllc/" title="Instagram">
                                             <i class="fa-2x fa fa-instagram "></i>
                                     </a>
                             </li>
@@ -110,35 +105,35 @@
 
                         <form class="container pt-3" action="post">
                             <h3>Employment Form</h3>
-                            <p class="lead text-cj">All fields are required.</p>
+                            <p class="lead">Want to join the team? </p>
                             <div class="form-group">
-                                <label for="desired-position">Position Applied For:</label>
+                                <label for="desired-position" class="font-weight-bold">Position Applied For:</label>
                                 <select class="form-control" id="desired-position" required>
                                   <option value="" selected>Choose...</option>
                                   <option value="Tow Truck Driver">Tow Truck Driver</option>
                                 </select>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row mb-2">
                                 <div class="col">
-                                    <label for="first-name">First Name</label>
+                                    <label for="first-name" class="font-weight-bold">First Name</label>
                                     <input type="text" class="form-control" placeholder="First name" id="first-name" />
                                 </div>
                                 <div class="col">
-                                    <label for="last-name">Last Name</label>
+                                    <label for="last-name" class="font-weight-bold">Last Name</label>
                                     <input type="text" class="form-control" placeholder="Last name" id="last-name" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                    <label for="inputAddress">Address</label>
+                                    <label for="inputAddress" class="font-weight-bold">Address</label>
                                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
                                   </div>
                                   <div class="form-group">
-                                    <label for="inputAddress2">Address Line 2</label>
+                                    <label for="inputAddress2">Address Line 2 (optional)</label>
                                     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
                                   </div>
                                   <div class="form-row">
                                         <div class="form-group col-md-6">
-                                          <label for="inputCity">City</label>
+                                          <label for="inputCity" class="font-weight-bold">City</label>
                                           <input type="text" class="form-control" id="inputCity">
                                         </div>
                                         <div class="form-group col-md-4">
@@ -212,35 +207,68 @@
                                         </div>
                                       </div>
                                       <div class="form-group">
-                                            <label for="email-address">Email</label>
+                                            <label for="email-address" class="font-weight-bold">Email</label>
                                             <input type="email" class="form-control" id="email-address" />
                                           </div>
                                           <div class="form-group">
-                                            <label for="phone-number">Phone Number</label>
-                                            <input type="tel" class="form-control" id="phone-number" />
+                                            <label for="phone-number" class="font-weight-bold">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone-number" required title="(123) 456-7890" />
                                           </div>
-                                          <div class="form-group">
-                                                <label for="desired-position">Do you have a valid Driver's License?</label>
-                                                <select class="form-control" id="drivers-license" required>
-                                                  <option value="" selected>Choose...</option>
-                                                  <option value="yes">Yes</option>
-                                                  <option value="no">No</option>
-                                                </select>
+                                          <div class="form-row mb-2">
+                                                <div class="col">
+                                                    <label for="dob" class="font-weight-bold">Date of Birth</label>
+                                                    <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" required />
+                                                </div>
+                                                <div class="col">
+                                                        <label for="desired-position" class="font-weight-bold">Do you have a valid Driver's License?</label>
+                                                        <select class="form-control" id="drivers-license" required>
+                                                          <option value="" selected>Choose...</option>
+                                                          <option value="yes">Yes</option>
+                                                          <option value="no">No</option>
+                                                        </select>
+                                                </div>
                                             </div>
 
+                                                  <div class="form-group">
+                                                        <label for="phone-number" class="font-weight-bold">Upload your resume (Microsoft Word, PDF)</label>
+                                                  <div class="input-group mb-3">
+                                                        <div class="input-group-prepend">
+                                                          <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                        </div>
+                                                        <div class="custom-file">
+                                                          <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+
+                                                      <div class="form-group">
+                                                            <label for="phone-number">How did you learn about us?</label>
+                                                            <div class="custom-control custom-checkbox">
+                                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                                    <label class="custom-control-label" for="customCheck1">Advertisement</label>
+                                                                  </div>
+                                                                  <div class="custom-control custom-checkbox">
+                                                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                                        <label class="custom-control-label" for="customCheck1">Employment Agency</label>
+                                                                      </div>
+                                                                      <div class="custom-control custom-checkbox">
+                                                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                                            <label class="custom-control-label" for="customCheck1">Friend/Relative</label>
+                                                                          </div>
+                                                                          <div class="custom-control custom-checkbox">
+                                                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                                                <label class="custom-control-label" for="customCheck1">Walk-In</label>
+                                                                              </div>
+                                                          </div>
+
+                            <button type="submit" class="btn btn-outline-cj btn-block mt-4 mb-3">Submit Application</button>
                         </form>
 
                     </main><!-- /.container -->
 
-<footer>
+<footer class="pt-3 pb-3">
     <div class="container">
-        <div class="row">
-            <div class="col">1</div>
-            <div class="col">1</div>
-            <div class="col">
-
-            </div>
-        </div> <!-- ./row -->
         <hr />
         <p class="text-center">
             Copyright &copy; 2019-2020 C&J Towing and Recovery. All Rights Reserved.
@@ -254,5 +282,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
