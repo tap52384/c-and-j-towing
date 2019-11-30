@@ -30,7 +30,7 @@
 
               <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="top-nav">
                     <div class="container">
-                      <a class="navbar-brand" href="./">
+                      <a class="navbar-brand" href="./index.html">
                           <img src="psd/logo.jpg" alt="Logo" />
                       </a>
                       <!-- the collapse button-->
@@ -42,7 +42,7 @@
                       <div class="collapse navbar-collapse" id="navbarsExample07">
                         <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                            <a class="nav-link" href="./">Home</a>
+                            <a class="nav-link" href="./index.html">Home</a>
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
@@ -168,6 +168,38 @@
                                             </div> <!-- /.darna-icon-box style4 -->
                                     </div> <!-- ./col-md-4 -->
                             </div> <!-- /.row -->
+
+                            <h2 class="mt-5 mb-5 text-center">
+                                <a id="contact-us-form" title="Contact Us Form"></a>
+                                Contact Us Form
+                            </h2>
+                            <form action="post">
+                                    <div class="form-row mb-2">
+                                            <div class="col">
+                                                <label for="first-name" class="font-weight-bold">First Name</label>
+                                                <input type="text" class="form-control" id="first-name" autocomplete="given-name" />
+                                            </div>
+                                            <div class="col">
+                                                <label for="last-name" class="font-weight-bold">Last Name</label>
+                                                <input type="text" class="form-control" id="last-name" autocomplete="family-name" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-2">
+                                                <div class="col">
+                                                    <label for="email-address" class="font-weight-bold">Email</label>
+                                                    <input type="email" class="form-control" id="email-address" />
+                                                </div>
+                                                <div class="col">
+                                                    <label for="phone-number" class="font-weight-bold">Phone Number</label>
+                                                    <input type="tel" class="form-control" id="phone-number" required title="(123) 456-7890" autocomplete="tel" />
+                                                </div>
+                                            </div> <!-- /.form-row mb-2 -->
+                                            <div class="form-group">
+                                                <label for="contact-message" class="font-weight-bold">Message</label>
+                                                <textarea id="contact-message" name="contact-message" class="form-control" rows="7"></textarea>
+                                            </div>
+                                            <button type="submit" id="submit-contact-form" class="btn btn-block btn-outline-cj btn-lg mb-3">Submit Form</button>
+                            </form>
                         </div> <!-- /.container -->
 
                 </main><!-- /.container -->
