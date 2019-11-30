@@ -105,6 +105,7 @@ footer hr {
     }
 }
 
+/* used for contact.html */
 .darna-icon-box.style4 .ibox-icon {
     display: block;
     height: 110px;
@@ -126,11 +127,6 @@ footer hr {
     background-color: var(--main-bg-color);
 }
 
-.entry-content a:hover, .comment-text a:hover {
-    text-decoration: underline;
-    color: #ffb600;
-}
-
 .darna-icon-box.style4:hover .ibox-icon i {
     color: #ffffff;
 }
@@ -140,7 +136,35 @@ footer hr {
 }
 
 .darna-icon-box.style4 .ibox-icon i {
-    font-size: 2em;
+    font-size: 3em;
     line-height: 6.875rem;
     color: #ffffff;
+}
+
+/* used on featurette on index.html (tow truck driver needed */
+
+.featurette-divider {
+    margin: 3rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+/* extension on bootstrap spacing clases
+https://getbootstrap.com/docs/4.4/utilities/spacing/ */
+.mb-4-5 {
+    margin-bottom: 2rem!important;
+}
+.mb-5-5 {
+    margin-bottom: 4rem!important;
+}
+.mb-6 {
+    margin-bottom: 5rem!important;
+}
+.mb-7 {
+    margin-bottom: 7rem!important;
 }
