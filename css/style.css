@@ -141,6 +141,15 @@ footer hr {
     color: #ffffff;
 }
 
+.darna-icon-box.style4:hover a p.lead.text-muted.pt-3 {
+    color: var(--main-bg-color)!important;
+    text-decoration: none;
+}
+
+.darna-icon-box.style4:hover a:hover {
+    text-decoration: none;
+}
+
 /* used on featurette on index.html (tow truck driver needed */
 
 .featurette-divider {
