@@ -1,0 +1,179 @@
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+:root {
+    --main-bg-color: #993333;
+}
+
+body {
+    padding-top: 6.6rem;
+}
+
+.text-cj {
+    color: var(--main-bg-color)!important;
+}
+
+#top-nav {
+    background-color: var(--main-bg-color);
+}
+
+#top-nav .social-links-top a {
+    color: #fff;
+}
+
+a.navbar-brand img {
+    height: 4em;  /* 4.6875em; */
+}
+
+.nav-link:hover {
+    margin-bottom: -2px;
+    border-bottom: 2px solid #000;
+}
+
+.dropdown-item:hover {
+    color: #fff;
+    background-color: var(--main-bg-color);
+}
+
+footer {
+    background-color: var(--main-bg-color);
+    color: #fff;
+}
+
+footer hr {
+    color: #fff;
+}
+
+.intro {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                  url("../img/main_back_sample1.jpg");
+    background-size: cover;
+    color: #fff;
+    min-height: 12em;
+    text-align: center;
+}
+
+#home-intro {
+    min-height: 28em;
+}
+
+#home-intro h2 {
+    font-size: 2.5em;
+}
+
+#home-intro h1 {
+    font-size: 5.625em;
+}
+
+#home-intro a.btn {
+    border: 2px solid #fff;
+}
+
+.btn-cj, .btn-outline-cj:hover {
+    color: #fff;
+    background-color: var(--main-bg-color);
+    border: 1px solid #fff;
+}
+
+.btn-outline-cj {
+    color: var(--main-bg-color);
+    border-color: var(--main-bg-color);
+}
+
+.btn-cj:hover {
+    background-color: #851f1f;
+    border-color: #7d1d1d;
+    color: #fff;
+}
+
+.second-content-row .img-fluid {
+    margin: 0 auto;
+    height: 9em;
+    display: block;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+/* used for contact.html */
+.darna-icon-box.style4 .ibox-icon {
+    display: block;
+    height: 110px;
+    width: 110px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #000;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+
+.darna-icon-box.style4 .ibox-icon:hover {
+    background-color: var(--main-bg-color);
+}
+
+.darna-icon-box.style4:hover .ibox-icon i {
+    color: #ffffff;
+}
+
+.darna-icon-box.style4 {
+    text-align: center;
+}
+
+.darna-icon-box.style4 .ibox-icon i {
+    font-size: 3em;
+    line-height: 6.875rem;
+    color: #ffffff;
+}
+
+.darna-icon-box.style4:hover a p.lead.text-muted.pt-3 {
+    color: var(--main-bg-color)!important;
+    text-decoration: none;
+}
+
+.darna-icon-box.style4:hover a:hover {
+    text-decoration: none;
+}
+
+/* used on featurette on index.html (tow truck driver needed */
+
+.featurette-divider {
+    margin: 3rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+/* extension on bootstrap spacing clases
+https://getbootstrap.com/docs/4.4/utilities/spacing/ */
+.mb-4-5 {
+    margin-bottom: 2rem!important;
+}
+.mb-5-5 {
+    margin-bottom: 4rem!important;
+}
+.mb-6 {
+    margin-bottom: 5rem!important;
+}
+.mb-7 {
+    margin-bottom: 7rem!important;
+}

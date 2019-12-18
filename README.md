@@ -2,6 +2,32 @@
 
 Website for C&amp;J Towing and Recovery
 
+```bash
+# You can build the image without having to clone the repository locally
+# Uses the "master" branch for building the image
+mkdir -p ~/code
+cd ~/code
+docker build --pull https://github.com/tap52384/ubi8-php-73.git -t tap52384:ubi8-php-73
+
+# Next, "re-build" the app using s2i (source-to-image)
+# Specify the /public/ folder as the Apache documentroot as needed for Laravel
+git clone -q https://github.com/tap52384/c-and-j-towing.git
+s2i build -e DOCUMENTROOT=/public/ ~/code/c-and-j-towing/ tap52384:ubi8-php-73 tap52384:c-and-j-towing
+
+# Stop and delete any containers based on the RedHat image
+docker rm -f $(docker ps -aq --filter ancestor=registry.access.redhat.com/ubi8/php-73 --format="{{.ID}}") || true
+
+# Create the container "towing" with the code folder mounted
+docker run \
+--name towing \
+-e USER=$(whoami) \
+--hostname $(hostname) \
+-d \
+-p 8080:8080 \
+-v ~/code/c-and-j-towing:/opt/app-root/src/ \
+tap52384:c-and-j-towing
+```
+
 ## Logo
 
 Font: [Avenir Next Bold (Wikipedia)](https://en.wikipedia.org/wiki/Avenir_(typeface)#Avenir_Next)

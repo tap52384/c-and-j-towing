@@ -38,4 +38,8 @@ Homestead.json
 /.bash_history
 .gitconfig
 .composer
+.npm
 .DS_Store
+composer.phar
+public/css
+public/js
