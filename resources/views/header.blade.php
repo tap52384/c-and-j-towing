@@ -20,12 +20,15 @@
 
         <!-- Favicons -->
         <meta name="theme-color" content="#563d7c" />
+
+        <!-- https://laravel.com/docs/6.x/csrf#csrf-x-csrf-token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="top-nav">
             <div class="container">
                 <a class="navbar-brand" href="/" title="Home">
-                    <img src="psd/logo.jpg" alt="Logo" />
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" />
                 </a>
                 <!-- the collapse button-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07"
@@ -35,31 +38,32 @@
 
                 <div class="collapse navbar-collapse" id="navbarsExample07">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item @if(Route::currentRouteName() === 'home') active @endif">
+                            <a class="nav-link" href="/">Home @if(Route::currentRouteName() === 'home') <span class="sr-only">(current)</span> @endif</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                        <li class="nav-item @if(Route::currentRouteName() === 'about') active @endif">
+                            <a class="nav-link" href="/about">About Us @if(Route::currentRouteName() === 'about') <span class="sr-only">(current)</span> @endif</a>
                         </li>
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="./services.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <li class="nav-item dropdown @if(Route::currentRouteName() === 'services') active @endif">
+                                <a class="nav-link dropdown-toggle" href="/services" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services
+                                @if(Route::currentRouteName() === 'services') <span class="sr-only">(current)</span> @endif</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="./services.html#24-hour-towing">24-Hour Towing</a>
-                                <a class="dropdown-item" href="./services.html#battery-replacement">Battery Replacement</a>
-                                <a class="dropdown-item" href="./services.html#fuel-delivery" title="Fuel Delivery &amp; Refill">Fuel Delivery &amp; Refill</a>
-                                <a class="dropdown-item" href="./services.html#locksmith-service">Locksmith Service &amp; Car Unlocking</a>
-                                <a class="dropdown-item" href="./services.html#roadside-service">Roadside Service</a>
-                                <a class="dropdown-item" href="./services.html#tire-repair">Tire Repair &amp; Replacement</a>
+                                <a class="dropdown-item" href="/services#24-hour-towing">24-Hour Towing</a>
+                                <a class="dropdown-item" href="/services#battery-replacement">Battery Replacement</a>
+                                <a class="dropdown-item" href="/services#fuel-delivery" title="Fuel Delivery &amp; Refill">Fuel Delivery &amp; Refill</a>
+                                <a class="dropdown-item" href="/services#locksmith-service">Locksmith Service &amp; Car Unlocking</a>
+                                <a class="dropdown-item" href="/services#roadside-service">Roadside Service</a>
+                                <a class="dropdown-item" href="/services#tire-repair">Tire Repair &amp; Replacement</a>
                                 </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/gallery">Gallery</a>
+                        <li class="nav-item @if(Route::currentRouteName() === 'gallery') active @endif">
+                            <a class="nav-link" href="/gallery">Gallery @if(Route::currentRouteName() === 'gallery') <span class="sr-only">(current)</span> @endif</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/employment">Employment</a>
+                        <li class="nav-item @if(Route::currentRouteName() === 'employment') active @endif">
+                            <a class="nav-link" href="/employment">Employment @if(Route::currentRouteName() === 'employment') <span class="sr-only">(current)</span> @endif</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/contact">Contact Us</a>
+                        <li class="nav-item @if(Route::currentRouteName() === 'contact') active @endif">
+                            <a class="nav-link" href="/contact">Contact Us @if(Route::currentRouteName() === 'contact') <span class="sr-only">(current)</span> @endif</a>
                         </li>
                     </ul>
                     <a href="tel:+19842440240" title="Call Us Now!" class="btn btn-outline-light">(984) 244-0240</a>

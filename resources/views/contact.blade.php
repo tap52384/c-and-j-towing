@@ -1,11 +1,24 @@
 @extends('master')
 
 @section('content')
+
+@component('subheader')
+    @slot('subheaderTitle')
+        Contact Us
+    @endslot
+    @slot('subheader_icon')
+        <i class="fa-2x fa fa-address-book"></i>
+    @endslot
+    @slot('subheader_intro')
+        All day, every day, we're available to meet your towing needs!
+    @endslot
+@endcomponent
+
 <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <span class="ibox-icon" \>
+                        <span class="ibox-icon">
                             <i class="fa fa-home"></i>
                         </span>
                         <h3 class="text-muted pt-3">Address</h3>
@@ -69,6 +82,7 @@
                 Contact Us Form
             </h2>
             <form method="post">
+                @csrf
                 <div class="form-row mb-2">
                     <div class="col">
                         <label for="first-name" class="font-weight-bold">First Name</label>

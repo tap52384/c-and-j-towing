@@ -28,6 +28,10 @@ docker run \
 tap52384:c-and-j-towing
 ```
 
+## How to clone to existing repository
+
+<https://stackoverflow.com/a/16811212/1620794>
+
 ## Logo
 
 Font: [Avenir Next Bold (Wikipedia)](https://en.wikipedia.org/wiki/Avenir_(typeface)#Avenir_Next)

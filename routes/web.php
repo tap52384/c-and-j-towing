@@ -14,14 +14,24 @@
 Route::get('/', function () {
     // return view('welcome');
     return view('master');
-});
+})->name('home');
 
 Route::get('/gallery', function () {
-    // return view('welcome');
     return view('gallery');
-});
+})->name('gallery');
 
 Route::get('/contact', function () {
-    // return view('welcome');
     return view('contact');
-});
+})->name('contact');
+
+Route::get('/employment', function () {
+    return view('employment');
+})->name('employment');
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');

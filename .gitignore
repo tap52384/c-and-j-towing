@@ -43,3 +43,4 @@ Homestead.json
 composer.phar
 public/css
 public/js
+/.vscode-server

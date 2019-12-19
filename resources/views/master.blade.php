@@ -9,9 +9,6 @@
             <a class="btn btn-lg btn-cj" href="/contact#contact-us-form">Schedule an Appointment</a>
         </div>
     </section>
-@else
-    @component('subheader')
-    @endcomponent
 @endif
 
 @section('content')
@@ -19,7 +16,7 @@
             <div class="row my-3">
                 <div class="col">
                     <h2 class="text-center">Top Customer Service</h2>
-                    <img src="img/single-star.jpg" title="Top Customer Service" class="img-fluid" />
+                    <img src="{{ asset('images/single-star.jpg') }}" title="Top Customer Service" class="img-fluid" />
                     <ul class="mb-1">
                         <li class="lead">Affordable, Competitive Rates</li>
                         <li class="lead">Quick, Reliable & Efficient</li>
@@ -32,7 +29,7 @@
                 </div>
                 <div class="col">
                     <h2 class="text-center">Have AAA?</h2>
-                    <img src="img/aaa_logo.png" title="Have AAA?" class="img-fluid mb-2" />
+                    <img src="{{ asset('images/aaa_logo.png') }}" title="Have AAA?" class="img-fluid mb-2" />
                     <p class="lead mt-3 mb-5">
                         Call us directly for faster service and we
                         will be sure to charge AAA and not you! Call
@@ -42,13 +39,13 @@
                 </div>
                 <div class="col">
                     <h2>Tow Truck Driver Wanted</h2>
-                    <img src="img/tow-truck.jpg" title="Tow Truck Driver Wanted" class="img-fluid mb-2" />
+                    <img src="{{ asset('images/tow-truck.jpg') }}" title="Tow Truck Driver Wanted" class="img-fluid mb-2" />
                     <p class="lead mt-3 mb-5">
                         Are you an experienced tow truck driver with
                         great customer service experience? Join our
                         team!
                     </p>
-                    <a class="btn btn-lg btn-block btn-outline-cj" href="./employment.html" title="Apply Now">Apply
+                    <a class="btn btn-lg btn-block btn-outline-cj" href="/employment" title="Apply Now">Apply
                         Now</a>
                 </div> <!-- /.col -->
             </div><!-- /.row -->
@@ -73,7 +70,7 @@
                 </div> <!-- ./col-md-4 -->
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="./services.html#battery-replacement" title="Battery Replacement">
+                        <a href="/services#battery-replacement" title="Battery Replacement">
                             <span class="ibox-icon">
                                 <i class="fa-2x fa fa-battery"></i>
                             </span>
@@ -85,7 +82,7 @@
                 </div> <!-- ./col-md-4 -->
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="./services.html#fuel-delivery" title="Fuel Delivery &amp; Refill">
+                        <a href="/services#fuel-delivery" title="Fuel Delivery &amp; Refill">
                             <span class="ibox-icon">
                                 <i class="fa-2x fa fa-car"></i>
                             </span>
@@ -99,7 +96,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="./services.html#locksmith-service" title="Locksmith Service &amp; Car Unlocking">
+                        <a href="/services#locksmith-service" title="Locksmith Service &amp; Car Unlocking">
                             <span class="ibox-icon">
                                 <i class="fa-2x fa fa-car"></i>
                             </span>
@@ -111,7 +108,7 @@
                 </div> <!-- ./col-md-6 -->
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="./services.html#roadside-service" title="Roadside Service">
+                        <a href="/services#roadside-service" title="Roadside Service">
                             <span class="ibox-icon">
                                 <i class="fa-2x fa fa-road"></i>
                             </span>
@@ -123,7 +120,7 @@
                 </div> <!-- ./col-md-4 -->
                 <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="./services.html#tire-repair" title="Tire Repair &amp; Replacement">
+                        <a href="/services#tire-repair" title="Tire Repair &amp; Replacement">
                             <span class="ibox-icon">
                                 <i class="fa-2x fa fa-car"></i>
                             </span>
