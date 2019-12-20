@@ -48,12 +48,9 @@
                                 <a class="nav-link dropdown-toggle" href="/services" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services
                                 @if(Route::currentRouteName() === 'services') <span class="sr-only">(current)</span> @endif</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                                <a class="dropdown-item" href="/services#24-hour-towing">24-Hour Towing</a>
-                                <a class="dropdown-item" href="/services#battery-replacement">Battery Replacement</a>
-                                <a class="dropdown-item" href="/services#fuel-delivery" title="Fuel Delivery &amp; Refill">Fuel Delivery &amp; Refill</a>
-                                <a class="dropdown-item" href="/services#locksmith-service">Locksmith Service &amp; Car Unlocking</a>
-                                <a class="dropdown-item" href="/services#roadside-service">Roadside Service</a>
-                                <a class="dropdown-item" href="/services#tire-repair">Tire Repair &amp; Replacement</a>
+                                @foreach($serviceList as $service)
+                                <a class="dropdown-item" href="/services#{{ $service['anchor-name'] }}" title="{{ $service['display-name'] }}">{{ $service['display-name'] }}</a>
+                                @endforeach
                                 </div>
                         </li>
                         <li class="nav-item @if(Route::currentRouteName() === 'gallery') active @endif">

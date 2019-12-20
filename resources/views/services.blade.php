@@ -7,16 +7,21 @@
     Services
     @endslot
     @slot('subheader_icon')
-    <i class="fa-2x fa fa-check-square-o"></i>
+    <i class="fa-2x fa fa-list"></i>
     @endslot
     @slot('subheader_intro')
     A list of all the ways we can best serve your needs
     @endslot
 @endcomponent
 
-
+@component('servicelist')
+@endcomponent
 
 <div class="container">
+    @foreach($serviceList as $service)
+
+    @endforeach
+
     <hr class="featurette-divider">
     <div class="row featurette">
         <div class="col-md-7">

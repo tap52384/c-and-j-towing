@@ -1,4 +1,59 @@
-@include('header')
+@php
+$serviceList = [
+    '24-hour-towing' => [
+        'anchor-name' => '24-hour-towing',
+        'catchy-desc-dark' => 'Flatbed towing.',
+        'catchy-desc-light' => '24 hours a day, every day.',
+        'details' => '',
+        'font-awesome' => 'fa-clock-o',
+        'display-name' => '24-Hour Towing'
+    ],
+    'battery-replacement' => [
+        'anchor-name' => 'battery-replacement',
+        'catchy-desc-dark' => 'Battery died?',
+        'catchy-desc-light' => 'A new one is a call away.',
+        'details' => '',
+        'font-awesome' => 'fa-battery',
+        'display-name' => 'Battery Replacement'
+    ],
+    'fuel-delivery' => [
+        'anchor-name' => 'fuel-delivery',
+        'catchy-desc-dark' => 'Tank empty?',
+        'catchy-desc-light' => 'We deliver both gas and diesel.',
+        'details' => 'If you suspect your battery is having problems, we can ' .
+        'test it within minutes and jumpstart your vehicle. If you need a new one, we can sell you one and install it for you on the spot.',
+        'font-awesome' => 'fa-tachometer',
+        'display-name' => 'Fuel Delivery & Refill'
+    ],
+    'locksmith-service' => [
+        'anchor-name' => 'locksmith-service',
+        'catchy-desc-dark' => 'Lockout recovery.',
+        'catchy-desc-light' => 'See for yourself.',
+        'details' => '',
+        'font-awesome' => 'fa-unlock-alt',
+        'display-name' => 'Locksmith Service & Car Unlocking'
+    ],
+    'roadside-service' => [
+        'anchor-name' => 'roadside-service',
+        'catchy-desc-dark' => '',
+        'catchy-desc-light' => '',
+        'details' => '',
+        'font-awesome' => 'fa-road',
+        'display-name' => 'Roadside Service'
+    ],
+    'tire-repair' => [
+        'anchor-name' => 'tire-repair',
+        'catchy-desc-dark' => '',
+        'catchy-desc-light' => '',
+        'details' => '',
+        'font-awesome' => 'fa-wrench',
+        'display-name' => 'Tire Repair & Replacement'
+    ]
+];
+
+@endphp
+
+@include('header', ['serviceList' => $serviceList])
 
 @if(Request::is('/'))
     <section id="home-intro" class="intro pt-5 pb-5">
@@ -55,82 +110,21 @@
             <hr class="featurette-divider" />
             <h2 class="featurette-heading mb-4 text-center">On the side of the road? <span class="text-muted text-cj">We have
                     you covered.</span></h2>
+
             <div class="row">
-                <div class="col-md-4">
+            @foreach($serviceList as $service)
+            <div class="col-md-4">
                     <div class="darna-icon-box style4">
-                        <a href="/services#24-hour-towing" title="24-Hour Towing">
+                        <a href="/services#{{ $service['anchor-name'] }}" title="{{ $service['display-name'] }}">
                             <span class="ibox-icon">
-                                <i class="fa-2x fa fa-clock-o"></i>
+                                <i class="fa-2x fa {{ $service['font-awesome'] }}"></i>
                             </span>
-                            <p class="lead text-muted pt-3">
-                                24-Hour Towing
-                            </p>
+                            <p class="lead text-muted pt-3">{{ $service['display-name'] }}</p>
                         </a>
                     </div> <!-- /.darna-icon-box style4 -->
                 </div> <!-- ./col-md-4 -->
-                <div class="col-md-4">
-                    <div class="darna-icon-box style4">
-                        <a href="/services#battery-replacement" title="Battery Replacement">
-                            <span class="ibox-icon">
-                                <i class="fa-2x fa fa-battery"></i>
-                            </span>
-                            <p class="lead text-muted pt-3">
-                                Battery Replacement
-                            </p>
-                        </a>
-                    </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-4 -->
-                <div class="col-md-4">
-                    <div class="darna-icon-box style4">
-                        <a href="/services#fuel-delivery" title="Fuel Delivery &amp; Refill">
-                            <span class="ibox-icon">
-                                <i class="fa-2x fa fa-car"></i>
-                            </span>
-                            <p class="lead text-muted pt-3">
-                                Fuel Delivery &amp; Refill
-                            </p>
-                        </a>
-                    </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-4 -->
-            </div><!-- /.row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="darna-icon-box style4">
-                        <a href="/services#locksmith-service" title="Locksmith Service &amp; Car Unlocking">
-                            <span class="ibox-icon">
-                                <i class="fa-2x fa fa-car"></i>
-                            </span>
-                            <p class="lead text-muted pt-3">
-                                Locksmith Service &amp; Car Unlocking
-                            </p>
-                        </a>
-                    </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-6 -->
-                <div class="col-md-4">
-                    <div class="darna-icon-box style4">
-                        <a href="/services#roadside-service" title="Roadside Service">
-                            <span class="ibox-icon">
-                                <i class="fa-2x fa fa-road"></i>
-                            </span>
-                            <p class="lead text-muted pt-3">
-                                Roadside Service
-                            </p>
-                        </a>
-                    </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-4 -->
-                <div class="col-md-4">
-                    <div class="darna-icon-box style4">
-                        <a href="/services#tire-repair" title="Tire Repair &amp; Replacement">
-                            <span class="ibox-icon">
-                                <i class="fa-2x fa fa-car"></i>
-                            </span>
-                            <p class="lead text-muted pt-3">
-                                Tire Repair &amp; Replacement
-                            </p>
-                        </a>
-                    </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-4 -->
-            </div><!-- /.row -->
+            @endforeach
+            </div> <!-- /.row -->
         </section>
 @show
 
