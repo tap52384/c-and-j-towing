@@ -35,3 +35,11 @@ Route::get('/services', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+
+Route::get('/emails/employment', function() {
+    return new App\Mail\AppSubmitted();
+});
+
+Route::get('/emails/contact', function() {
+    return new App\Mail\ContactSubmitted();
+});

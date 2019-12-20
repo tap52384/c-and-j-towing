@@ -14,7 +14,7 @@
     @endslot
 @endcomponent
 
-<div class="container">
+<div class="container mb-3">
     @foreach($serviceList as $service)
     <hr class="featurette-divider">
     <div class="row featurette">
