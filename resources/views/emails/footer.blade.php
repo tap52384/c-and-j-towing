@@ -1,3 +1,4 @@
+<div class="container">
 <footer class="pt-3 pb-3">
     <div class="container">
         <p class="text-center">
@@ -5,7 +6,7 @@
         </p>
     </div>
 </footer>
+</div>
 
 </body>
-
 </html>

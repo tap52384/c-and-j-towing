@@ -1,37 +1,26 @@
 @extends('emails.master')
 
 @section('content')
-<h1>Contact Form Submitted</h1>
+<h3>Your contact request has been submitted successfully!</h3>
+<p class="lead text-muted">To recap, here are the details:</p>
 <table class="table">
     <tbody>
         <tr>
-            <th scope="row">Vacancy ID</td>
-            <td>{{ $vacancy_id ?? '' }}</td>
+            <th scope="row">Customer</td>
+            <td>Here is some text<br />and more...</td>
         </tr>
         <tr>
-            <th scope="row">Onyen</td>
+            <th scope="row">Vehicle</td>
             <td>{{ $onyen ?? '' }}</td>
         </tr>
         <tr>
             <th scope="row">Message</td>
             <td>
-                {{ $message_text ?? '' }}
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">Time</td>
-            <td>{{ $current_time ?? '' }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Environment</td>
-            <td>{{ $app_env ?? '' }}</td>
-        </tr>
-        <tr>
-            <th scope="row">Details</td>
-            <td>
-                <pre>{{ $details ?? '' }}</pre>
+                {{ $message_text ?? 'No message text entered.' }}
             </td>
         </tr>
     </tbody>
 </table>
+
+<p class="lead text-muted">A member of our team will be reaching out to you shortly.</p>
 @endsection

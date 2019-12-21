@@ -43,3 +43,7 @@ Route::get('/emails/employment', function() {
 Route::get('/emails/contact', function() {
     return new App\Mail\ContactSubmitted();
 });
+
+Route::get('/emails/bestbuy', function() {
+    return view('emails.bestbuy');
+});
