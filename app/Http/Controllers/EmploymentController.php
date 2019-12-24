@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Employment;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Log;
 use App\Mail\EmploymentSubmitted;
 
@@ -41,21 +42,37 @@ class EmploymentController extends Controller
     {
         // TODO: Make sure to link the position and employment models
 
+        // Custom error messages for the form validator
+        // https://laravel.com/docs/6.x/validation#custom-error-messages
+        $messages = [
+            'resume_file.required' => 'Please upload your resume (Microsoft Word, PDF).'
+        ];
+
         // https://laravel.com/docs/6.x/validation#quick-writing-the-validation-logic
-        $validatedData = $request->validate([
-            'desired-position' => 'required',
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'address_1' => 'required',
-            'city' => 'required',
-            'state' => 'required',
-            'zip' => 'required',
-            'email' => 'required|max:255|email',
-            'phone' => 'required|numeric',
-            'dob' => 'required|date_format:m/d/Y',
-            'valid_license' => 'required|boolean',
-            'resume_file' => 'required'
-        ]);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'desired-position' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'address_1' => 'required',
+                'city' => 'required',
+                'state' => 'required',
+                'zip' => 'required',
+                'email' => 'required|max:255|email',
+                'phone' => 'required|numeric',
+                'dob' => 'required|date_format:m/d/Y',
+                'valid_license' => 'required|boolean',
+                'resume_file' => 'required'
+            ],
+            $messages
+        );
+
+        if ($validator->fails()) {
+            return redirect('/employment')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         Log::debug('Passed validation for employment form!');
 
