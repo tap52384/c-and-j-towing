@@ -7,5 +7,8 @@ use Log;
 
 class Position extends Model
 {
-    //
+    public function employments()
+    {
+        return $this->hasMany('App\Employment');
+    }
 }

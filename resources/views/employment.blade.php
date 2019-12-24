@@ -32,11 +32,11 @@
 <form class="container pt-3" method="post">
     @csrf
     <div class="form-group">
-        <label for="desired-position" class="font-weight-bold">Position Applied For:</label>
-        <select class="form-control" id="desired-position" name="desired-position">
+        <label for="position_id" class="font-weight-bold">Position Applied For:</label>
+        <select class="form-control" id="position_id" name="position_id">
             <option value="">Choose...</option>
             @foreach (App\Position::all() as $position)
-                <option value="{{ $position->id }}" @if(strcasecmp(old('desired-position'), $position->id) === 0) selected @endif>{{ $position->name }}</option>
+                <option value="{{ $position->id }}" @if(strcasecmp(old('position_id'), $position->id) === 0) selected @endif>{{ $position->name }}</option>
             @endforeach
         </select>
     </div>
@@ -70,12 +70,12 @@
             value="{{ old('city') }}" />
         </div>
         <div class="form-group col-md-4">
-            <label for="state">State</label>
-            <select id="state" name="state" class="form-control" autocomplete="address-level1">
+            <label for="state_id">State</label>
+            <select id="state_id" name="state_id" class="form-control" autocomplete="address-level1">
                 <option value="">Choose...</option>
                 @foreach(App\State::all() as $state)
                     <option value="{{ $state->id }}"
-                    @if(strcasecmp(old('state'), $state->id) === 0) selected @endif>
+                    @if(strcasecmp(old('state_id'), $state->id) === 0) selected @endif>
                     {{ $state->name }}
                     </option>
                 @endforeach
@@ -107,7 +107,7 @@
             value="{{ old('dob') }}" />
         </div>
         <div class="col">
-            <label for="desired-position" class="font-weight-bold">Do you have a valid Driver's License?</label>
+            <label for="valid_license" class="font-weight-bold">Do you have a valid Driver's License?</label>
             <select class="form-control" id="valid_license" name="valid_license">
                 <option value="">Choose...</option>
                 <option value="1" @if(strcasecmp(old('valid_license'), '1') === 0) selected @endif>Yes</option>

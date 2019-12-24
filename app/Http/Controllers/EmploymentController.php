@@ -52,12 +52,12 @@ class EmploymentController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'desired-position' => 'required',
+                'position_id' => 'required',
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'address_1' => 'required',
                 'city' => 'required',
-                'state' => 'required',
+                'state_id' => 'required',
                 'zip' => 'required',
                 'email' => 'required|max:255|email',
                 'phone' => 'required|numeric',
@@ -81,12 +81,13 @@ class EmploymentController extends Controller
         // 2. Mailed to the customer, owner, and developers
         $employment = new Employment();
         $fields = [
+            'position_id',
             'first_name',
             'last_name',
             'address_1',
             'address_2',
             'city',
-            'state',
+            'state_id',
             'zip',
             'email',
             // 'phone',

@@ -28,6 +28,20 @@ docker run \
 tap52384:c-and-j-towing
 ```
 
+## Adding a foreign key constrain to MySQL in a single statement
+
+```sql
+ALTER TABLE employments
+ADD COLUMN position_id INT,
+ADD FOREIGN KEY fk_employments_positions_position_id(position_id)
+REFERENCES positions(ID) ON DELETE CASCADE;
+
+ALTER TABLE employments
+ADD COLUMN state_id INT,
+ADD FOREIGN KEY fk_employments_states_state_id(state_id)
+REFERENCES states(ID) ON DELETE CASCADE;
+```
+
 ## How to clone to existing repository
 
 <https://stackoverflow.com/a/16811212/1620794>

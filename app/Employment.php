@@ -16,4 +16,14 @@ class Employment extends Model
         Log::debug('date transformed for Employment model: "' . $value . '"');
         Log::debug('date is valid: ' . ($this->attributes['dob']->isValid() === true ? 'true' : 'false'));
     }
+
+    public function position()
+    {
+        return $this->belongsTo('App\Position');
+    }
+
+    public function state()
+    {
+        return $this->belongsTo('App\State');
+    }
 }
