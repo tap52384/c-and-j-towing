@@ -20,13 +20,13 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::get('/contact', function () {
+Route::match(['get', 'post'], '/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::get('/employment', function () {
-    return view('employment');
-})->name('employment');
+Route::get('/employment', 'EmploymentController@create')->name('employment');
+
+Route::post('/employment', 'EmploymentController@store');
 
 Route::get('/services', function () {
     return view('services');
@@ -37,11 +37,11 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/emails/employment', function() {
-    return new App\Mail\AppSubmitted();
+    return new App\Mail\EmploymentSubmitted(new App\Employment());
 });
 
 Route::get('/emails/contact', function() {
-    return new App\Mail\ContactSubmitted();
+    return new App\Mail\ContactSubmitted(new App\Contact());
 });
 
 Route::get('/emails/bestbuy', function() {

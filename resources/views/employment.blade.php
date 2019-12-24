@@ -15,143 +15,115 @@
     @endslot
 @endcomponent
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <h3>The following errors were encountered:</h3>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
 <form class="container pt-3" method="post">
     @csrf
     <div class="form-group">
         <label for="desired-position" class="font-weight-bold">Position Applied For:</label>
-        <select class="form-control" id="desired-position" required>
-            <option value="" selected>Choose...</option>
-            <option value="Tow Truck Driver">Tow Truck Driver</option>
+        <select class="form-control" id="desired-position" name="desired-position">
+            <option value="">Choose...</option>
+            @foreach (App\Position::all() as $position)
+                <option value="{{ $position->id }}" @if(strcasecmp(old('desired-position'), $position->id) === 0) selected @endif>{{ $position->name }}</option>
+            @endforeach
         </select>
     </div>
     <div class="form-row mb-2">
         <div class="col">
-            <label for="first-name" class="font-weight-bold">First Name</label>
-            <input type="text" class="form-control" id="first-name" autocomplete="given-name" />
+            <label for="first_name" class="font-weight-bold">First Name</label>
+            <input type="text" class="form-control" id="first_name" name="first_name"
+            autocomplete="given-name" value="{{ old('first_name') }}"  />
         </div>
         <div class="col">
-            <label for="last-name" class="font-weight-bold">Last Name</label>
-            <input type="text" class="form-control" id="last-name" autocomplete="family-name" />
+            <label for="last_name" class="font-weight-bold">Last Name</label>
+            <input type="text" class="form-control" id="last_name"
+            name="last_name" autocomplete="family-name" value="{{ old('last_name') }}" />
         </div>
     </div>
     <div class="form-group">
-        <label for="inputAddress" class="font-weight-bold">Address</label>
-        <input type="text" class="form-control" id="inputAddress" autocomplete="street-address" />
+        <label for="address_1" class="font-weight-bold">Address</label>
+        <input type="text" class="form-control" id="address_1" name="address_1"
+        autocomplete="street-address" name="address_1" value="{{ old('address_1') }}" />
     </div>
     <div class="form-group">
-        <label for="inputAddress2">Address Line 2 (optional)</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment number"
-            autocomplete="address-line2" />
+        <label for="address_2">Address Line 2 (optional)</label>
+        <input type="text" class="form-control" id="address_2" name="address_2" placeholder="Apartment number"
+            autocomplete="address-line2" value="{{ old('address_2') }}" />
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputCity" class="font-weight-bold">City</label>
-            <input type="text" class="form-control" id="inputCity" autocomplete="address-level2">
+            <label for="city" class="font-weight-bold">City</label>
+            <input type="text" class="form-control" id="city"
+            name="city" autocomplete="address-level2"
+            value="{{ old('city') }}" />
         </div>
         <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control" autocomplete="address-level1">
-                <option value="" selected>Choose...</option>
-                <option value="AL">Alabama</option>
-                <option value="AK">Alaska</option>
-                <option value="AS">American Samoa</option>
-                <option value="AZ">Arizona</option>
-                <option value="AR">Arkansas</option>
-                <option value="CA">California</option>
-                <option value="CO">Colorado</option>
-                <option value="CT">Connecticut</option>
-                <option value="DE">Delaware</option>
-                <option value="DC">District Of Columbia</option>
-                <option value="FM">Federated States Of Micronesia</option>
-                <option value="FL">Florida</option>
-                <option value="GA">Georgia</option>
-                <option value="GU">Guam</option>
-                <option value="HI">Hawaii</option>
-                <option value="ID">Idaho</option>
-                <option value="IL">Illinois</option>
-                <option value="IN">Indiana</option>
-                <option value="IA">Iowa</option>
-                <option value="KS">Kansas</option>
-                <option value="KY">Kentucky</option>
-                <option value="LA">Louisiana</option>
-                <option value="ME">Maine</option>
-                <option value="MH">Marshall Islands</option>
-                <option value="MD">Maryland</option>
-                <option value="MA">Massachusetts</option>
-                <option value="MI">Michigan</option>
-                <option value="MN">Minnesota</option>
-                <option value="MS">Mississippi</option>
-                <option value="MO">Missouri</option>
-                <option value="MT">Montana</option>
-                <option value="NE">Nebraska</option>
-                <option value="NV">Nevada</option>
-                <option value="NH">New Hampshire</option>
-                <option value="NJ">New Jersey</option>
-                <option value="NM">New Mexico</option>
-                <option value="NY">New York</option>
-                <option value="NC">North Carolina</option>
-                <option value="ND">North Dakota</option>
-                <option value="MP">Northern Mariana Islands</option>
-                <option value="OH">Ohio</option>
-                <option value="OK">Oklahoma</option>
-                <option value="OR">Oregon</option>
-                <option value="PW">Palau</option>
-                <option value="PA">Pennsylvania</option>
-                <option value="PR">Puerto Rico</option>
-                <option value="RI">Rhode Island</option>
-                <option value="SC">South Carolina</option>
-                <option value="SD">South Dakota</option>
-                <option value="TN">Tennessee</option>
-                <option value="TX">Texas</option>
-                <option value="UT">Utah</option>
-                <option value="VT">Vermont</option>
-                <option value="VI">Virgin Islands</option>
-                <option value="VA">Virginia</option>
-                <option value="WA">Washington</option>
-                <option value="WV">West Virginia</option>
-                <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
+            <label for="state">State</label>
+            <select id="state" name="state" class="form-control" autocomplete="address-level1">
+                <option value="">Choose...</option>
+                @foreach(App\State::all() as $state)
+                    <option value="{{ $state->id }}"
+                    @if(strcasecmp(old('state'), $state->id) === 0) selected @endif>
+                    {{ $state->name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="form-group col-md-2">
-            <label for="inputZip">Zip</label>
-            <input type="text" class="form-control" id="inputZip" autocomplete="postal-code" />
+            <label for="zip">Zip</label>
+            <input type="text" class="form-control" id="zip" name="zip"
+            value="{{ old('zip') }}" autocomplete="postal-code"  />
         </div>
     </div>
-    <div class="form-group">
-        <label for="email-address" class="font-weight-bold">Email</label>
-        <input type="email" class="form-control" id="email-address" autocomplete="email" autocapitalize="off" />
-    </div>
-    <div class="form-group">
-        <label for="phone-number" class="font-weight-bold">Phone Number</label>
-        <input type="tel" class="form-control" id="phone-number" required title="(123) 456-7890" autocomplete="tel" />
-    </div>
-    <div class="form-row mb-2">
+    <div class="form-row mb-3">
+        <div class="col">
+            <label for="email" class="font-weight-bold">Email</label>
+            <input type="email" class="form-control" id="email"
+            value="{{ old('email') }}" name="email" autocomplete="email" autocapitalize="off"  />
+        </div>
+        <div class="col">
+            <label for="phone" class="font-weight-bold">Phone Number</label>
+            <input type="tel" class="form-control" id="phone"
+            value="{{ old('phone') }}" name="phone"
+            title="(123) 456-7890" autocomplete="tel" />
+        </div>
+    </div> <!-- /.form-row -->
+    <div class="form-row mb-3">
         <div class="col">
             <label for="dob" class="font-weight-bold">Date of Birth</label>
-            <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" autocomplete="bday"
-                required />
+            <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" name="dob" autocomplete="bday"
+            value="{{ old('dob') }}" />
         </div>
         <div class="col">
             <label for="desired-position" class="font-weight-bold">Do you have a valid Driver's License?</label>
-            <select class="form-control" id="drivers-license" required>
-                <option value="" selected>Choose...</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+            <select class="form-control" id="valid_license" name="valid_license">
+                <option value="">Choose...</option>
+                <option value="1" @if(strcasecmp(old('valid_license'), '1') === 0) selected @endif>Yes</option>
+                <option value="0" @if(strcasecmp(old('valid_license'), '0') === 0) selected @endif>No</option>
             </select>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="phone-number" class="font-weight-bold">Upload your resume (Microsoft Word, PDF)</label>
+        <label for="inputGroupFileAddon01" class="font-weight-bold">Upload your resume (Microsoft Word, PDF)</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
             </div>
             <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                <input type="file" class="custom-file-input" id="resume_file" name="resume_file"
                     aria-describedby="inputGroupFileAddon01">
-                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                <label class="custom-file-label" for="resume_file">Choose file</label>
             </div>
         </div>
     </div>
@@ -159,19 +131,19 @@
     <div class="form-group">
         <label for="discoveryMethod1">How did you learn about us?</label>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod1">
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod1" name="learned_about_us[]" />
             <label class="custom-control-label" for="discoveryMethod1">Advertisement</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod2">
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod2" name="learned_about_us[]" />
             <label class="custom-control-label" for="discoveryMethod2">Employment Agency</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod3">
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod3" name="learned_about_us[]" />
             <label class="custom-control-label" for="discoveryMethod3">Friend/Relative</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod4">
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod4" name="learned_about_us[]" />
             <label class="custom-control-label" for="discoveryMethod4">Walk-In</label>
         </div>
     </div>

@@ -6,8 +6,9 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Employment;
 
-class AppSubmitted extends Mailable
+class EmploymentSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +17,9 @@ class AppSubmitted extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Employment $employment)
     {
-        //
+        $this->employment = $employment;
     }
 
     /**

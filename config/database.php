@@ -60,6 +60,9 @@ return [
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                // changes case of column names to lowercase
+                // https://stackoverflow.com/a/41191311/1620794
+                PDO::ATTR_CASE => PDO::CASE_LOWER
             ]) : [],
         ],
 

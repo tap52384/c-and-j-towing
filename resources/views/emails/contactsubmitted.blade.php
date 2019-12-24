@@ -22,5 +22,6 @@
     </tbody>
 </table>
 
-<p class="lead text-muted">A member of our team will be reaching out to you shortly.</p>
+<p class="lead text-muted">A member of our team will be reaching out to
+you shortly. Thanks for choosing C &amp; J Towing Services!</p>
 @endsection
