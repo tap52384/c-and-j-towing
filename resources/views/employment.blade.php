@@ -9,10 +9,12 @@
     @slot('subheader_icon')
         <i class="fa-2x fa fa-address-book"></i>
     @endslot
+    @empty($employment)
     @slot('subheader_intro')
         Have what it takes to join the team? Submit the form with your resume
         below.
     @endslot
+    @endempty
 @endcomponent
 
 @if ($errors->any())
@@ -26,7 +28,7 @@
     </div>
 @endif
 
-
+@empty($employment)
 <form class="container pt-3" method="post">
     @csrf
     <div class="form-group">
@@ -150,5 +152,15 @@
 
     <button type="submit" class="btn btn-outline-cj btn-block mt-4 mb-3">Submit Application</button>
 </form>
+@else
+<div class="container mt-3 mb-5">
+    <div class="alert alert-success">
+        <h3>Your application was submitted successfully!</h3>
+        <p class="lead">You should receive a confirmation email at
+        <strong>{{ $employment->email }}</strong>. We will contact you soon to let
+        you know whether your application was selected for an interview.</p>
+    </div>
+</div>
+@endempty
 
 @endsection

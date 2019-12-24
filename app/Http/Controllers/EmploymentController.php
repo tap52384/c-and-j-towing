@@ -52,7 +52,7 @@ class EmploymentController extends Controller
             'zip' => 'required',
             'email' => 'required|max:255|email',
             'phone' => 'required|numeric',
-            'dob' => 'required',
+            'dob' => 'required|date_format:m/d/Y',
             'valid_license' => 'required|boolean',
             'resume_file' => 'required'
         ]);
@@ -81,30 +81,40 @@ class EmploymentController extends Controller
         foreach ($fields as $field) {
             $employment->$field = $request->input($field);
         }
-        $employment->resume_file = $request->file('resume_file');
+        // The Mailable EmploymentSubmitted needs to accept a second parameter
+        // for the uploaded resume file
+        // $employment->resume_file = $request->file('resume_file');
         $employment->learned_about_us = implode(', ', $request->input('learned_about_us', ''));
         # Removes all non-numeric
         $employment->phone = preg_replace("/[^0-9]/", "", $request->input('phone', ''));
 
         $employment->save();
 
-        $mail = new App\Mail\EmploymentSubmitted($employment);
-        Mail::to('tap52384@gmail.com')
-        ->cc('carlos.dsanford@gmail.com')
-        ->send($mail);
+        $mail = new EmploymentSubmitted($employment);
+        // TODO: Uncomment this statement to actually send mail.
+        // Mail::to('tap52384@gmail.com')
+        // ->cc('carlos.dsanford@gmail.com')
+        // ->send($mail);
 
-        return $mail;
+        return $this->show($employment);
     }
 
     /**
      * Display the specified resource.
+     * This is used for showing the page once the form was submitted
+     * successfully.
      *
      * @param  \App\Employment  $employment
      * @return \Illuminate\Http\Response
      */
     public function show(Employment $employment)
     {
-        //
+        return view(
+            'employment',
+            [
+                'employment' => $employment
+            ]
+        );
     }
 
     /**
