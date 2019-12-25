@@ -1,4 +1,9 @@
-<h3>Your employment application was submitted successfully!</h3>
+<div class="alert alert-success">
+        <h3>Your employment application was submitted successfully!</h3>
+        <p class="lead">A confirmation email has been sent to
+        <strong>{{ $employment->email }}</strong>.</p>
+</div>
+
 <p class="lead text-muted">To recap, here are the details:</p>
 <table class="table">
     <tbody>
@@ -47,6 +52,6 @@
     </tbody>
 </table>
 
-<p class="lead text-muted">A member of our team will be reaching out to
-you once your application has been reviewed. Thanks for choosing C &amp; J
+<p class="lead text-muted">We will contact you soon to let you know whether your
+application was selected for an interview. Thanks for choosing C &amp; J
 Towing Services!</p>

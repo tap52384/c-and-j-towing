@@ -44,6 +44,7 @@ class EmploymentSubmitted extends Mailable
     {
         return $this->view('emails.employmentsubmitted')
                     ->text('emails.employmentsubmitted_plain')
+                    ->subject('Employment Application Submitted')
                     // https://laravel.com/docs/6.x/mail#attachments
                     ->attach(
                         $this->file->getRealPath(),

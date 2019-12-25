@@ -134,19 +134,23 @@
     <div class="form-group">
         <label for="discoveryMethod1">How did you learn about us?</label>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod1" name="learned_about_us[]" />
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod1" name="learned_about_us[]"
+            value="advertisement" />
             <label class="custom-control-label" for="discoveryMethod1">Advertisement</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod2" name="learned_about_us[]" />
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod2" name="learned_about_us[]"
+            value="employment agency" />
             <label class="custom-control-label" for="discoveryMethod2">Employment Agency</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod3" name="learned_about_us[]" />
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod3" name="learned_about_us[]"
+            value="friend/relative" />
             <label class="custom-control-label" for="discoveryMethod3">Friend/Relative</label>
         </div>
         <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="discoveryMethod4" name="learned_about_us[]" />
+            <input type="checkbox" class="custom-control-input" id="discoveryMethod4"
+            name="learned_about_us[]" value="walk-in" />
             <label class="custom-control-label" for="discoveryMethod4">Walk-In</label>
         </div>
     </div>
@@ -154,14 +158,9 @@
     <button type="submit" class="btn btn-outline-cj btn-block mt-4 mb-3">Submit Application</button>
 </form>
 @else
-@include('emails.employmentcontent')
+
 <div class="container mt-3 mb-5">
-    <div class="alert alert-success">
-        <h3>Your application was submitted successfully!</h3>
-        <p class="lead">You should receive a confirmation email at
-        <strong>{{ $employment->email }}</strong>. We will contact you soon to let
-        you know whether your application was selected for an interview.</p>
-    </div>
+    @include('emails.employmentcontent')
 </div>
 @endempty
 
