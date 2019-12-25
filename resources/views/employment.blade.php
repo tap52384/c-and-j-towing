@@ -75,9 +75,7 @@
                 <option value="">Choose...</option>
                 @foreach(App\State::all() as $state)
                     <option value="{{ $state->id }}"
-                    @if(strcasecmp(old('state_id'), $state->id) === 0) selected @endif>
-                    {{ $state->name }}
-                    </option>
+                    @if(strcasecmp(old('state_id'), $state->id) === 0) selected @endif>{{ $state->name }}</option>
                 @endforeach
             </select>
         </div>

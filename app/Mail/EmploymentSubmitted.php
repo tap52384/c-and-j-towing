@@ -34,7 +34,15 @@ class EmploymentSubmitted extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.appsubmitted')
-                    ->text('emails.appsubmitted_plain');
+        return $this->view('emails.employmentsubmitted')
+                    ->text('emails.employmentsubmitted_plain')
+                    // https://laravel.com/docs/6.x/mail#attachments
+                    ->attach(
+                        $this->file->getRealPath(),
+                        [
+                            'as' => $this->file->getClientOriginalName(),
+                            'mime' => $this->file->getMimeType()
+                        ]
+                    );
     }
 }

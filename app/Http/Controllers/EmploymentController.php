@@ -48,6 +48,9 @@ class EmploymentController extends Controller
         // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html
         Log::debug('client extension: ' . $request->file('resume_file')->clientExtension());
         Log::debug('file extension: ' . $request->file('resume_file')->extension());
+        Log::debug('mime type: ' . $request->file('resume_file')->getMimeType());
+        Log::debug('real path: ' . $request->file('resume_file')->getRealPath());
+        Log::debug('file name: ' . $request->file('resume_file')->getClientOriginalName());
 
         // Custom error messages for the form validator
         // https://laravel.com/docs/6.x/validation#custom-error-messages
@@ -126,9 +129,9 @@ class EmploymentController extends Controller
 
         $mail = new EmploymentSubmitted($employment, $resumeFile);
         // TODO: Uncomment this statement to actually send mail.
-        // Mail::to('tap52384@gmail.com')
-        // ->cc('carlos.dsanford@gmail.com')
-        // ->send($mail);
+        Mail::to('tap52384@gmail.com')
+        ->cc('carlos.dsanford@gmail.com')
+        ->send($mail);
 
         return $this->show($employment);
     }

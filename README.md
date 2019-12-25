@@ -61,5 +61,7 @@ At a resolution of 300 pixels/inch and a square canvas size of 1500 pixels:
 
 ## References
 
+- <https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html>
+- [US States in JSON form](https://gist.github.com/mshafrir/2646763)
 - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept>
 - <https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>
