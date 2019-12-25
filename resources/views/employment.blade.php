@@ -154,6 +154,7 @@
     <button type="submit" class="btn btn-outline-cj btn-block mt-4 mb-3">Submit Application</button>
 </form>
 @else
+@include('emails.employmentcontent')
 <div class="container mt-3 mb-5">
     <div class="alert alert-success">
         <h3>Your application was submitted successfully!</h3>

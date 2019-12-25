@@ -37,7 +37,18 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/emails/employment', function() {
-    return new App\Mail\EmploymentSubmitted(new App\Employment());
+    $employment = new App\Employment();
+    $employment->first_name = 'Jane';
+    $employment->last_name = 'Smith';
+    $employment->address_1 = '123 Anywhere Street';
+    $employment->address_2 = 'APT 456';
+    $employment->city = 'Chapel Hill';
+    $employment->state = 'NC';
+    $employment->zip = '27517';
+    $employment->email = 'info@candjtowingservices.com';
+    $employment->phone = '1234567890';
+    $employment->valid_license = false;
+    return new App\Mail\EmploymentSubmitted($employment);
 });
 
 Route::get('/emails/contact', function() {

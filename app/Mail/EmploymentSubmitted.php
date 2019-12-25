@@ -13,6 +13,9 @@ class EmploymentSubmitted extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $employment;
+    public $file;
+
     /**
      * Create a new message instance.
      *
@@ -20,8 +23,13 @@ class EmploymentSubmitted extends Mailable
      */
     public function __construct(Employment $employment, UploadedFile $file = null)
     {
+        // Creates a fake resume file for testing purposes
         if ($file === null || $file->isValid() === false) {
-            $file = UploadedFile::fake();
+            // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html#method_fake
+            // https://laravel.com/api/6.x/Illuminate/Http/Testing/FileFactory.html#method_create
+            // https://laravel.com/docs/6.x/mocking#storage-fake
+            $file = UploadedFile::fake()
+                ->create('resume.docx', 0, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
         }
         $this->employment = $employment;
         $this->file = $file;
