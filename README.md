@@ -31,6 +31,7 @@ tap52384:c-and-j-towing
 ## Adding a foreign key constrain to MySQL in a single statement
 
 ```sql
+-- https://stackoverflow.com/a/1545264/1620794
 ALTER TABLE employments
 ADD COLUMN position_id INT,
 ADD FOREIGN KEY fk_employments_positions_position_id(position_id)
@@ -57,3 +58,8 @@ At a resolution of 300 pixels/inch and a square canvas size of 1500 pixels:
 - __Ampersand__ is `19.37%` the size of __C__ (150px), which is `48.2pt`
 - __TOWING__ is `39.53%` the size of __C__ (305.56px), which is `98.22pt`; space
   between __J__ and __TOWING__ is `6.976%` of __C__, which is `53.92px`
+
+## References
+
+- <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept>
+- <https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>

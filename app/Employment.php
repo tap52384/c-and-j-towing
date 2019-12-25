@@ -12,7 +12,7 @@ class Employment extends Model
      * Use a mutator to format an attribute before it is set on this model.
      */
     public function setDobAttribute($value) {
-        $this->attributes['dob'] = Carbon::createFromFormat('m/d/Y', $value, env('APP_TIMEZONE', 'UTC'));
+        $this->attributes['dob'] = Carbon::createFromFormat('m/d/Y', $value);
         Log::debug('date transformed for Employment model: "' . $value . '"');
         Log::debug('date is valid: ' . ($this->attributes['dob']->isValid() === true ? 'true' : 'false'));
     }

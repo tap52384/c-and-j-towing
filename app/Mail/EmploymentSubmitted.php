@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Employment;
@@ -17,9 +18,13 @@ class EmploymentSubmitted extends Mailable
      *
      * @return void
      */
-    public function __construct(Employment $employment)
+    public function __construct(Employment $employment, UploadedFile $file = null)
     {
+        if ($file === null || $file->isValid() === false) {
+            $file = UploadedFile::fake();
+        }
         $this->employment = $employment;
+        $this->file = $file;
     }
 
     /**

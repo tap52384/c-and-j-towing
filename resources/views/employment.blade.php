@@ -29,7 +29,7 @@
 @endif
 
 @empty($employment)
-<form class="container pt-3" method="post">
+<form class="container pt-3" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="position_id" class="font-weight-bold">Position Applied For:</label>
@@ -44,7 +44,7 @@
         <div class="col">
             <label for="first_name" class="font-weight-bold">First Name</label>
             <input type="text" class="form-control" id="first_name" name="first_name"
-            autocomplete="given-name" value="{{ old('first_name') }}"  />
+            autocomplete="given-name" value="{{ old('first_name') }}" />
         </div>
         <div class="col">
             <label for="last_name" class="font-weight-bold">Last Name</label>
@@ -84,14 +84,14 @@
         <div class="form-group col-md-2">
             <label for="zip">Zip</label>
             <input type="text" class="form-control" id="zip" name="zip"
-            value="{{ old('zip') }}" autocomplete="postal-code"  />
+            value="{{ old('zip') }}" autocomplete="postal-code" />
         </div>
     </div>
     <div class="form-row mb-3">
         <div class="col">
             <label for="email" class="font-weight-bold">Email</label>
             <input type="email" class="form-control" id="email"
-            value="{{ old('email') }}" name="email" autocomplete="email" autocapitalize="off"  />
+            value="{{ old('email') }}" name="email" autocomplete="email" autocapitalize="off" />
         </div>
         <div class="col">
             <label for="phone" class="font-weight-bold">Phone Number</label>
@@ -123,8 +123,11 @@
                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
             </div>
             <div class="custom-file">
+                <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept -->
+                <!-- https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types -->
                 <input type="file" class="custom-file-input" id="resume_file" name="resume_file"
-                    aria-describedby="inputGroupFileAddon01">
+                    aria-describedby="inputGroupFileAddon01"
+                    accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,.pdf,application/pdf" />
                 <label class="custom-file-label" for="resume_file">Choose file</label>
             </div>
         </div>

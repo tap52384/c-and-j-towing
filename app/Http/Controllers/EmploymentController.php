@@ -40,30 +40,41 @@ class EmploymentController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO: Make sure to link the position and employment models
+        Log::debug('all request values: ', $request->all());
+        Log::debug('is a file added: ' . ($request->hasFile('resume_file') === true ? 'true' : 'false'));
+        Log::debug('file_type: ' . get_class($request->file('resume_file')));
+        Log::debug('is a valid file: ' . $request->file('resume_file') !== null && $request->file('resume_file')->isValid());
+        // $request->file returns an instance of Illuminate\Http\UploadedFile
+        // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html
+        Log::debug('client extension: ' . $request->file('resume_file')->clientExtension());
+        Log::debug('file extension: ' . $request->file('resume_file')->extension());
 
         // Custom error messages for the form validator
         // https://laravel.com/docs/6.x/validation#custom-error-messages
         $messages = [
-            'resume_file.required' => 'Please upload your resume (Microsoft Word, PDF).'
+            'resume_file.required' => 'Please upload your resume (Microsoft Word, PDF).',
+            'dob.required' => 'Date of birth must be given in format MM/DD/YYYY.'
         ];
 
         // https://laravel.com/docs/6.x/validation#quick-writing-the-validation-logic
         $validator = Validator::make(
             $request->all(),
             [
-                'position_id' => 'required',
+                'position_id' => 'required|exists:App\Position,id',
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'address_1' => 'required',
                 'city' => 'required',
                 'state_id' => 'required',
                 'zip' => 'required',
-                'email' => 'required|max:255|email',
+                // https://laravel.com/docs/6.x/validation#rule-email
+                'email' => 'required|email:rfc',
                 'phone' => 'required|numeric',
                 'dob' => 'required|date_format:m/d/Y',
                 'valid_license' => 'required|boolean',
-                'resume_file' => 'required'
+                // https://laravel.com/docs/6.x/validation#rule-mimes
+                // https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
+                'resume_file' => 'required|file|mimes:doc,docx,pdf'
             ],
             $messages
         );
@@ -108,7 +119,12 @@ class EmploymentController extends Controller
 
         $employment->save();
 
-        $mail = new EmploymentSubmitted($employment);
+        // get the class type for the file
+        // https://laravel.com/docs/6.x/requests#retrieving-uploaded-files
+        $resumeFile = $request->file('resume_file');
+        Log::debug('resume file php type: ' . get_class($resumeFile));
+
+        $mail = new EmploymentSubmitted($employment, $resumeFile);
         // TODO: Uncomment this statement to actually send mail.
         // Mail::to('tap52384@gmail.com')
         // ->cc('carlos.dsanford@gmail.com')
