@@ -47,13 +47,51 @@ REFERENCES states(ID) ON DELETE CASCADE;
 
 ```bash
 # SSH into GoDaddy's servers
+# Reference URL: https://blog.netgloo.com/2015/08/06/configuring-godaddys-shared-hosting-for-laravel-and-git/
 ssh username@candjtowingservices.com
 
-# Go to the public_html folder (DocumentRoot)
-cd ~/www
-# Reverts the current folder to the state of the repo to HEAD
-# Warning: any local changes (should be none) to the files will be lost
-git reset --hard HEAD
+# Clone the code repo then rename the folder
+git clone https://github.com/tap52384/c-and-j-towing.git
+mv ~/c-and-j-towing/ ~/code/
+
+# Delete the public_html folder
+rm -r ~/public_html
+# Create a symbolic link to the ~/code/public folder
+ln -s ~/code/public public_html
+
+# Download Composer and install packages
+cd ~/code
+curl -sS https://getcomposer.org/installer | php
+composer install
+# Generate application key
+# https://laravel.com/docs/6.x/installation#configuration
+php artisan key:generate
+
+# Use Node Version Manager (nvm) to install NPM without root access
+# https://ferugi.com/blog/nodejs-on-godaddy-shared-cpanel/
+# https://github.com/nvm-sh/nvm
+cd ~
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+# Reload the PATH
+source ~/.bash_profile
+# Verify the installation
+nvm --version
+# Use nvm to install Node.js (npm, node)
+# Due to missing requirements, you have to install a specific older version of node:
+# https://stackoverflow.com/a/57798787/1620794
+# https://nodejs.org/en/download/releases/
+nvm install 8.17.0
+# Verify node and npm are installed
+node -v
+npm -v
+# Installing packages via npm, update css and javascript
+cd ~/code
+npm install
+npm run production
+
+# Update the code by pulling the latest changes
+git checkout master
+git pull
 ```
 
 ## How to clone to existing repository
