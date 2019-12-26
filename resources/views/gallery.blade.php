@@ -20,6 +20,7 @@ Shots of satisfied customers and recovery specialists hard at work
 
 <div class="container">
     <div class="row text-center text-lg-left">
+        <!-- https://startbootstrap.com/snippets/thumbnail-gallery/ -->
         @foreach(File::allFiles(public_path('images/gallery')) as $file)
         <div class="col-lg-3 col-md-4 col-6">
             <div class="card mb-4 shadow"> {{-- card mb-4 shadow --}}
