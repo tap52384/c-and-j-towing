@@ -43,9 +43,23 @@ ADD FOREIGN KEY fk_employments_states_state_id(state_id)
 REFERENCES states(ID) ON DELETE CASCADE;
 ```
 
+## How to update site on GoDaddy with latest code
+
+```bash
+# SSH into GoDaddy's servers
+ssh username@candjtowingservices.com
+
+# Go to the public_html folder (DocumentRoot)
+cd ~/www
+# Reverts the current folder to the state of the repo to HEAD
+# Warning: any local changes (should be none) to the files will be lost
+git reset --hard HEAD
+```
+
 ## How to clone to existing repository
 
-<https://stackoverflow.com/a/16811212/1620794>
+- <https://stackoverflow.com/a/16811212/1620794>
+- <https://stackoverflow.com/a/18999726/1620794>
 
 ## Logo
 

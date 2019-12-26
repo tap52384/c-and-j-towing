@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
                 'catchy-desc-dark' => 'Tank empty?',
                 'catchy-desc-light' => 'We deliver both gas and diesel.',
                 'details' => '',
-                'font-awesome' => 'fa-battery',
+                'font-awesome' => 'fa-car',
                 'display-name' => 'Fuel Delivery & Refill'
             ],
             'locksmith-service' => [
@@ -73,7 +73,7 @@ class AppServiceProvider extends ServiceProvider
                 'catchy-desc-dark' => '',
                 'catchy-desc-light' => '',
                 'details' => '',
-                'font-awesome' => 'fa-battery',
+                'font-awesome' => 'fa-wrench',
                 'display-name' => 'Tire Repair & Replacement'
             ]
         ];
