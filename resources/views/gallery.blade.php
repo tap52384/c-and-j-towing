@@ -19,10 +19,10 @@ Shots of satisfied customers and recovery specialists hard at work
 @endcomponent
 
 <div class="container">
-    <div class="row">
+    <div class="row text-center text-lg-left">
         @foreach(File::allFiles(public_path('images/gallery')) as $file)
-        <div class="col-md-4">
-            <div class="card mb-4 shadow">
+        <div class="col-lg-3 col-md-4 col-6">
+            <div class="card mb-4 shadow"> {{-- card mb-4 shadow --}}
                 <img src="{{ asset('images/gallery/' . $file->getRelativePathName()) }}"
                     alt="{{ asset('images/gallery/' . $file->getRelativePathName()) }}"
                     class="img-thumbnail img-fluid" />
