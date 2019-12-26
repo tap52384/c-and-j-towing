@@ -20,13 +20,13 @@ Route::get('/gallery', function () {
     return view('gallery');
 })->name('gallery');
 
-Route::match(['get', 'post'], '/contact', function () {
-    return view('contact');
-})->name('contact');
-
 Route::get('/employment', 'EmploymentController@create')->name('employment');
 
 Route::post('/employment', 'EmploymentController@store');
+
+Route::get('/contact', 'ContactController@create')->name('contact');
+
+Route::post('/contact', 'ContactController@store');
 
 Route::get('/services', function () {
     return view('services');
@@ -43,7 +43,7 @@ Route::get('/emails/employment', function() {
     $employment->address_1 = '123 Anywhere Street';
     $employment->address_2 = 'APT 456';
     $employment->city = 'Chapel Hill';
-    $employment->state = 'NC';
+    $employment->state = App\State::find(38);
     $employment->zip = '27517';
     $employment->email = 'info@candjtowingservices.com';
     $employment->phone = '1234567890';

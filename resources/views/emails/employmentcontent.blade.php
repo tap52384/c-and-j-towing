@@ -28,13 +28,17 @@
         <tr>
             <th scope="row">Phone</td>
             <td>
+                <a href="tel:+{{ $employment->phone }}" title="{{ $employment->phone }}">
                 {{ $employment->phone }}
+                </a>
             </td>
         </tr>
         <tr>
             <th scope="row">Email</td>
             <td>
+                <a href="mailto:{{ $employment->email }}" title="{{ $employment->email }}">
                 {{ $employment->email }}
+                </a>
             </td>
         </tr>
         <tr>
@@ -44,9 +48,9 @@
             </td>
         </tr>
         <tr>
-            <th scope="row">How did you find this job?</td>
+            <th scope="row">How did you find out this job?</td>
             <td>
-                {{ $employment->learned_about_us }}
+                {{ $employment->learned_about_us ?? 'N/A' }}
             </td>
         </tr>
     </tbody>

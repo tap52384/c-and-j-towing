@@ -163,6 +163,10 @@ footer hr {
     letter-spacing: -.05rem;
 }
 
+textarea:invalid {
+    border: 2px dashed var(--main-bg-color);
+}
+
 /* extension on bootstrap spacing clases
 https://getbootstrap.com/docs/4.4/utilities/spacing/ */
 .mb-4-5 {

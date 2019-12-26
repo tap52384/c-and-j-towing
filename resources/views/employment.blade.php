@@ -11,8 +11,7 @@
     @endslot
     @empty($employment)
     @slot('subheader_intro')
-        Have what it takes to join the team? Submit the form with your resume
-        below.
+        Have what it takes to join the team? Submit the form with your resume below.
     @endslot
     @endempty
 @endcomponent

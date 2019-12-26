@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Contact;
 
 class ContactSubmitted extends Mailable
 {
@@ -18,9 +19,9 @@ class ContactSubmitted extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Contact $contact)
     {
-        //
+        $this->contact = $contact;
     }
 
     /**
@@ -31,6 +32,7 @@ class ContactSubmitted extends Mailable
     public function build()
     {
         return $this->view('emails.contactsubmitted')
-                    ->text('emails.contactsubmitted_plain');
+                    ->text('emails.contactsubmitted_plain')
+                    ->subject('Contact Form Submitted');
     }
 }
