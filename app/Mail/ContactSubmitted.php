@@ -31,8 +31,12 @@ class ContactSubmitted extends Mailable
      */
     public function build()
     {
+        $subject = 'Contact Form Submitted';
+        if (strcasecmp(env('APP_ENV'), 'production') !== 0) {
+            $subject = '[test] ' . $subject;
+        }
         return $this->view('emails.contactsubmitted')
                     ->text('emails.contactsubmitted_plain')
-                    ->subject('Contact Form Submitted');
+                    ->subject($subject);
     }
 }

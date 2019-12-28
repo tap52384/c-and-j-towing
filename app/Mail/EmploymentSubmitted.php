@@ -43,9 +43,13 @@ class EmploymentSubmitted extends Mailable
      */
     public function build()
     {
+        $subject = 'Employment Application Submitted';
+        if (strcasecmp(env('APP_ENV'), 'production') !== 0) {
+            $subject = '[test] ' . $subject;
+        }
         return $this->view('emails.employmentsubmitted')
                     ->text('emails.employmentsubmitted_plain')
-                    ->subject('Employment Application Submitted')
+                    ->subject($subject)
                     // https://laravel.com/docs/6.x/mail#attachments
                     ->attach(
                         $this->file->getRealPath(),
