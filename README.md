@@ -107,6 +107,17 @@ git pull --rebase
 npm run production
 ```
 
+## Environment Variables
+
+Please see `.env.example` for a list of environment variables that had to be
+set in order for everything to work, including a few that were added, such as:
+
+- `APP_TIMEZONE`
+- `MAIL_BCC_RECIPIENTS`
+
+`MAIL_DRIVER` had to be changed to `sendmail` in order for mail to be sent from
+__GoDaddy__.
+
 ## Logo
 
 Font: [Avenir Next Bold (Wikipedia)](https://en.wikipedia.org/wiki/Avenir_(typeface)#Avenir_Next)

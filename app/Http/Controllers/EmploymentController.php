@@ -130,7 +130,7 @@ class EmploymentController extends Controller
         $mail = new EmploymentSubmitted($employment, $resumeFile);
         // TODO: Uncomment this statement to actually send mail.
         Mail::to($request->input('email'))
-        ->cc(env('MAIL_USERNAME'))
+        ->bcc(env('MAIL_USERNAME'))
         ->bcc(explode(',', env('MAIL_BCC_RECIPIENTS')))
         ->send($mail);
 

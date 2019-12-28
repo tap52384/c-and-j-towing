@@ -80,7 +80,7 @@ class ContactController extends Controller
         $contact->save();
         $mail = new ContactSubmitted($contact);
         Mail::to($request->input('email'))
-        ->cc(env('MAIL_USERNAME'))
+        ->bcc(env('MAIL_USERNAME'))
         ->bcc(explode(',', env('MAIL_BCC_RECIPIENTS')))
         ->send($mail);
 
