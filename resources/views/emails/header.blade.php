@@ -127,6 +127,12 @@
             .email-header {
                 background-color: #993333;
                 background-color: var(--main-bg-color);
+                color: #fff;
+            }
+
+            .email-header a {
+                color: #fff;
+                text-decoration: none;
             }
 
             .email-header .text {

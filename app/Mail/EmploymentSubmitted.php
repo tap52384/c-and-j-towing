@@ -24,6 +24,7 @@ class EmploymentSubmitted extends Mailable
     public function __construct(Employment $employment, UploadedFile $file = null)
     {
         // Creates a fake resume file for testing purposes
+        // 3rd parameter is a mime type for a MS Word file
         if ($file === null || $file->isValid() === false) {
             // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html#method_fake
             // https://laravel.com/api/6.x/Illuminate/Http/Testing/FileFactory.html#method_create

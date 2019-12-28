@@ -79,8 +79,9 @@ class ContactController extends Controller
         }
         $contact->save();
         $mail = new ContactSubmitted($contact);
-        Mail::to('tap52384@gmail.com')
-        ->cc('carlos.dsanford@gmail.com')
+        Mail::to($request->input('email'))
+        ->cc(env('MAIL_USERNAME'))
+        ->bcc(explode(',', env('MAIL_BCC_RECIPIENTS')))
         ->send($mail);
 
         return $this->show($contact);
