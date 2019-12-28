@@ -61,7 +61,7 @@
                 </div> <!-- ./col-md-4 -->
             </div> <!-- /.row -->
             <div class="row">
-                <div class="col-md-4">
+                {{-- <div class="col-md-4">
                     <div class="darna-icon-box style4">
                         <span class="ibox-icon">
                             <i class="fa fa-fax"></i>
@@ -69,8 +69,8 @@
                         <h3 class="text-muted pt-3">Fax</h3>
                         <p>(123) 456-7890</p>
                     </div> <!-- /.darna-icon-box style4 -->
-                </div> <!-- ./col-md-4 -->
-                <div class="col-md-4">
+                </div> <!-- ./col-md-4 --> --}}
+                <div class="col-md-6">
                     <div class="darna-icon-box style4">
                         <span class="ibox-icon">
                             <i class="fa fa-map-marker"></i>
@@ -79,7 +79,7 @@
                         <p><a href="#" title="Click here for directions via Google Maps">Click Here</a></p>
                     </div> <!-- /.darna-icon-box style4 -->
                 </div> <!-- ./col-md-4 -->
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="darna-icon-box style4">
                         <span class="ibox-icon">
                             <i class="fa fa-facebook"></i>
