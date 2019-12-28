@@ -28,6 +28,12 @@ docker run \
 tap52384:c-and-j-towing
 ```
 
+## Available Towing Services + Laravel 6.x
+
+The list of services provided are in an array in the `AppServiceProvider` class.
+This allows the data to be shared with all views and updated everywhere on the
+site at once. This technique is outlined in [the documentation](https://laravel.com/docs/6.x/views#sharing-data-with-all-views).
+
 ## Adding a foreign key constrain to MySQL in a single statement
 
 ```sql
@@ -75,7 +81,7 @@ which npm
 # https://ferugi.com/blog/nodejs-on-godaddy-shared-cpanel/
 # https://github.com/nvm-sh/nvm
 cd ~
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 # Reload the PATH
 source ~/.bash_profile
 # Verify the installation
@@ -98,12 +104,8 @@ npm run production
 cd ~/code
 git checkout master
 git pull --rebase
+npm run production
 ```
-
-## How to clone to existing repository
-
-- <https://stackoverflow.com/a/16811212/1620794>
-- <https://stackoverflow.com/a/18999726/1620794>
 
 ## Logo
 
@@ -123,3 +125,4 @@ At a resolution of 300 pixels/inch and a square canvas size of 1500 pixels:
 - [US States in JSON form](https://gist.github.com/mshafrir/2646763)
 - <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept>
 - <https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types>
+- <https://stackoverflow.com/a/1545264/1620794>

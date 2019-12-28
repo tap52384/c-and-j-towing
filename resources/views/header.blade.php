@@ -45,8 +45,9 @@
                             <a class="nav-link" href="/about">About Us @if(Route::currentRouteName() === 'about') <span class="sr-only">(current)</span> @endif</a>
                         </li>
                         <li class="nav-item dropdown @if(Route::currentRouteName() === 'services') active @endif">
-                                <a class="nav-link dropdown-toggle" href="/services" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services
-                                @if(Route::currentRouteName() === 'services') <span class="sr-only">(current)</span> @endif</a>
+                                <a class="nav-link dropdown-toggle" href="/services" id="dropdown01"
+                                data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">Services @if(Route::currentRouteName() === 'services') <span class="sr-only">(current)</span>@endif</a>
                                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                                 @foreach($serviceList as $service)
                                 <a class="dropdown-item" href="/services#{{ $service['anchor-name'] }}" title="{{ $service['display-name'] }}">{{ $service['display-name'] }}</a>

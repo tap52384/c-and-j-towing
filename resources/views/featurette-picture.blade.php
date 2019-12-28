@@ -8,11 +8,11 @@
     </svg>
     @else
     <div class="darna-icon-box style4">
-        <a href="/services#{{ $service['anchor-name'] }}" title="{{ $service['display-name'] }}">
             <span class="ibox-icon">
                 <i class="fa-2x fa {{ $service['font-awesome'] }}"></i>
             </span>
-        </a>
     </div> <!-- /.darna-icon-box style4 -->
+    <a href="#{{ $service['anchor-name'] }}" id="{{ $service['anchor-name'] }}"
+        title="{{ $service['display-name'] }}" class="mt-5"></a>
     @endempty
 </div>

@@ -29,7 +29,9 @@ class AppServiceProvider extends ServiceProvider
                 'anchor-name' => '24-hour-towing',
                 'catchy-desc-dark' => 'Flatbed towing.',
                 'catchy-desc-light' => '24 hours a day, every day.',
-                'details' => '',
+                'details' => 'Let us know where your vehicle is and where it ' .
+                'needs to go anywhere in the Triangle and surrounding areas. We ' .
+                'tow motorcycles too!',
                 'font-awesome' => 'fa-clock-o',
                 'display-name' => '24-Hour Towing'
             ],
@@ -47,32 +49,38 @@ class AppServiceProvider extends ServiceProvider
             'fuel-delivery' => [
                 'anchor-name' => 'fuel-delivery',
                 'catchy-desc-dark' => 'Tank empty?',
-                'catchy-desc-light' => 'We deliver both gas and diesel.',
-                'details' => '',
+                'catchy-desc-light' => 'We can fill it up.',
+                'details' => 'C & J Towing Services can deliver both gasoline ' .
+                'and diesel to your vehicle whenever you need it. Your days of ' .
+                'worrying about running out of gas are over.',
                 'font-awesome' => 'fa-car',
                 'display-name' => 'Fuel Delivery & Refill'
             ],
             'locksmith-service' => [
                 'anchor-name' => 'locksmith-service',
                 'catchy-desc-dark' => 'Lockout recovery.',
-                'catchy-desc-light' => 'See for yourself.',
-                'details' => '',
+                'catchy-desc-light' => 'No keys? No problem.',
+                'details' => 'No need to panic; our experienced team can help ' .
+                'you regain access to your car when you\'ve been locked out.',
                 'font-awesome' => 'fa-unlock-alt',
                 'display-name' => 'Locksmith Service & Car Unlocking'
             ],
-            'roadside-service' => [
-                'anchor-name' => 'roadside-service',
-                'catchy-desc-dark' => '',
-                'catchy-desc-light' => '',
-                'details' => '',
-                'font-awesome' => 'fa-road',
-                'display-name' => 'Roadside Service'
-            ],
+            // 'roadside-service' => [
+            //     'anchor-name' => 'roadside-service',
+            //     'catchy-desc-dark' => '',
+            //     'catchy-desc-light' => '',
+            //     'details' => '',
+            //     'font-awesome' => 'fa-road',
+            //     'display-name' => 'Roadside Service'
+            // ],
             'tire-repair' => [
                 'anchor-name' => 'tire-repair',
-                'catchy-desc-dark' => '',
-                'catchy-desc-light' => '',
-                'details' => '',
+                'catchy-desc-dark' => 'Flat tires. Blown tires.',
+                'catchy-desc-light' => 'Repaired and replaced.',
+                'details' => 'Day or night, feel free to call us if when you are ' .
+                'on the side of the road with due to issues with your tires. We ' .
+                'can bring and install replacements and get you back on the road ' .
+                'in no time.',
                 'font-awesome' => 'fa-wrench',
                 'display-name' => 'Tire Repair & Replacement'
             ]
