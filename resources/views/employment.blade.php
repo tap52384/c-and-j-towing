@@ -7,7 +7,7 @@
         Employment Application
     @endslot
     @slot('subheader_icon')
-        <i class="fa-2x fa fa-address-book"></i>
+        <i class="fa-2x fa fa-list-ol"></i>
     @endslot
     @empty($employment)
     @slot('subheader_intro')
