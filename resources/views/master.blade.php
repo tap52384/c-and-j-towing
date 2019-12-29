@@ -71,6 +71,13 @@
             @endforeach
             </div> <!-- /.row -->
         </section>
+
+        <section class="container text-center mb-3">
+            <hr class="featurette-divider" />
+            <h2 class="featurette-heading mb-4 text-center">Watch the video below learn more!</h2>
+            <iframe width="640" height="360" src="https://www.youtube.com/embed/Nuc2vedaKXk"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>
 @show
 
 @include('footer')
