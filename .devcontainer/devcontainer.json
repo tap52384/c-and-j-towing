@@ -5,7 +5,7 @@
 	"name": "C & J Towing Services",
 
 	// Sets the run context to one level up instead of the .devcontainer folder.
-    "context": "..",
+    // "context": "..",
 
     // https://github.com/tap52384/ubi8-php-73
     "image": "tap52384/ubi8-php-73",
@@ -23,7 +23,7 @@
     // "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
     "runArgs": [
         "--name=towing",
-        "-e USER=$(whoami)",
+        // "-e USER=$(whoami)",
         "--hostname=$(hostname)"
     ],
 
@@ -50,8 +50,11 @@
         "8443:8443/tcp"
     ],
 
-	// Uncomment the next line to run commands after the container is created - for example installing git.
-	// "postCreateCommand": "apt-get update && apt-get install -y git",
+    // Uncomment the next line to run commands after the container is created - for example installing git.
+    // If this doesn't seem to work, delete /.vscode-server/data/Machine/.postCreateCommandMarker
+    // and then use the Remote-Containers command in VS Code to "Rebuild Container"
+    // View --> Command Palette
+	"postCreateCommand": "rm -f .vscode-server/data/Machine/.postCreateCommandMarker && ([[ -f /opt/app-root/src/composer.phar ]] || curl -sS https://getcomposer.org/installer | php)",
 
 	// Add the IDs of extensions you want installed when the container is created in the array below.
 	"extensions": []
