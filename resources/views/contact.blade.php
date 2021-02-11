@@ -55,7 +55,7 @@
                             <i class="fa fa-envelope"></i>
                         </span>
                         <h3 class="text-muted pt-3">Email</h3>
-                        <p><a href="mailto:info@candjtowingservices.com" title="info@candjtowingservices.com">info@candjtowingservices.com</a>
+                        <p><a href="mailto:candjtowingnc@gmail.com" title="candjtowingnc@gmail.com">candjtowingnc@gmail.com</a>
                         </p>
                     </div> <!-- /.darna-icon-box style4 -->
                 </div> <!-- ./col-md-4 -->

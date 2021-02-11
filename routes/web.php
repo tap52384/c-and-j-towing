@@ -45,7 +45,7 @@ Route::get('/emails/employment', function() {
     $employment->city = 'Chapel Hill';
     $employment->state = App\State::find(38);
     $employment->zip = '27517';
-    $employment->email = 'info@candjtowingservices.com';
+    $employment->email = 'candjtowingnc@gmail.com';
     $employment->phone = '1234567890';
     $employment->valid_license = false;
     return new App\Mail\EmploymentSubmitted($employment);
