@@ -40,17 +40,25 @@ class EmploymentController extends Controller
      */
     public function store(Request $request)
     {
+        $uploadedFile = $request->file('resume_file');
+
         Log::debug('all request values: ', $request->all());
         Log::debug('is a file added: ' . ($request->hasFile('resume_file') === true ? 'true' : 'false'));
-        Log::debug('file_type: ' . get_class($request->file('resume_file')));
-        Log::debug('is a valid file: ' . $request->file('resume_file') !== null && $request->file('resume_file')->isValid());
-        // $request->file returns an instance of Illuminate\Http\UploadedFile
-        // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html
-        Log::debug('client extension: ' . $request->file('resume_file')->clientExtension());
-        Log::debug('file extension: ' . $request->file('resume_file')->extension());
-        Log::debug('mime type: ' . $request->file('resume_file')->getMimeType());
-        Log::debug('real path: ' . $request->file('resume_file')->getRealPath());
-        Log::debug('file name: ' . $request->file('resume_file')->getClientOriginalName());
+
+        if ($uploadedFile) {
+            Log::debug('file_type: ' . get_class($request->file('resume_file')));
+            // $request->file returns an instance of Illuminate\Http\UploadedFile
+            // https://laravel.com/api/6.x/Illuminate/Http/UploadedFile.html
+            Log::debug('client extension: ' . $request->file('resume_file')->clientExtension());
+            Log::debug('file extension: ' . $request->file('resume_file')->extension());
+            Log::debug('mime type: ' . $request->file('resume_file')->getMimeType());
+            Log::debug('real path: ' . $request->file('resume_file')->getRealPath());
+            Log::debug('file name: ' . $request->file('resume_file')->getClientOriginalName());
+        }
+
+        Log::debug('is a valid file: ' . ($uploadedFile!== null && $uploadedFile->isValid()));
+
+
 
         // Custom error messages for the form validator
         // https://laravel.com/docs/6.x/validation#custom-error-messages

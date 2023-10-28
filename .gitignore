@@ -44,3 +44,10 @@ composer.phar
 public/css
 public/js
 /.vscode-server
+.cache/
+.config/
+.devcontainer/.onCreateCommandMarker
+.devcontainer/.postCreateCommandMarker
+.devcontainer/.updateContentCommandMarker
+.local/
+.ssh/
