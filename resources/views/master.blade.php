@@ -53,12 +53,13 @@
 
         <section class="container">
             <hr class="featurette-divider" />
-            <h2 class="featurette-heading mb-4 text-center">On the side of the road? <span class="text-muted text-cj">We have
-                    you covered.</span></h2>
+            <h2 class="featurette-heading mb-4 text-center">On the side of the road?
+                <span class="text-muted text-cj">We have you covered.</span>
+            </h2>
 
             <div class="row">
             @foreach($serviceList as $service)
-            <div class="col-md-4">
+            <div class="{{ $loop->index < 3 ? 'col-md-4' : 'col-md-6' }}">
                     <div class="darna-icon-box style4">
                         <a href="/services#{{ $service['anchor-name'] }}" title="{{ $service['display-name'] }}">
                             <span class="ibox-icon">
