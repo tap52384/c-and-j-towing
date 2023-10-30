@@ -67,17 +67,17 @@
                     <a href="tel:+19842440240" title="Call Us Now!" class="btn btn-outline-light">(984) 244-0240</a>
                     <ul class="navbar-nav ml-2 social-links-top">
                         <li class="mr-2">
-                            <a href="https://www.facebook.com/pg/cnjtowingandrecovery" title="Facebook">
+                            <a href="https://www.facebook.com/pg/cnjtowingandrecovery" title="Facebook" target="_blank" rel="noreferrer noopener">
                                 <i class="fa-2x fa fa-facebook "></i>
                             </a>
                         </li>
                         <li class="mr-2">
-                            <a href="https://www.instagram.com/cjtowingllc/" title="Instagram">
+                            <a href="https://www.instagram.com/cjtowingllc/" title="Instagram" target="_blank" rel="noreferrer noopener">
                                 <i class="fa-2x fa fa-instagram"></i>
                             </a>
                         </li>
                         <li class="mr-2">
-                            <a href="https://www.yelp.com/biz/c-and-j-towing-raleigh" title="Yelp">
+                            <a href="https://www.yelp.com/biz/c-and-j-towing-raleigh" title="Yelp" target="_blank" rel="noreferrer noopener">
                                 <i class="fa-2x fa fa-yelp"></i>
                             </a>
                         </li>

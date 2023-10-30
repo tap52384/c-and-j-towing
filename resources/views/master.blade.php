@@ -75,9 +75,29 @@
 
         <section class="container text-center mb-3">
             <hr class="featurette-divider" />
-            <h2 class="featurette-heading mb-4 text-center">Watch the video below to learn more!</h2>
-            <iframe width="640" height="360" src="https://www.youtube.com/embed/Nuc2vedaKXk"
-                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h2 class="featurette-heading mb-4 text-center">Watch the videos below to learn more about C &amp; J Towing:</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <iframe width="100%" height="225" src="https://www.youtube.com/embed/Ps4t_B5U47c"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <iframe width="100%" height="225" src="https://www.youtube.com/embed/cKkfmRYavLE"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <iframe width="100%" height="225" src="https://www.youtube.com/embed/5WLTLAkfv8c"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <iframe width="100%" height="225" src="https://www.youtube.com/embed/vBD9eCvO76E"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-4">
+                    <iframe width="100%" height="225" src="https://www.youtube.com/embed/Nuc2vedaKXk"
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div> <!-- row containing all videos -->
         </section>
 @show
 

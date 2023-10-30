@@ -4,11 +4,14 @@ Website for C &amp; J Towing and Recovery
 
 <https://candjtowingservices.com>
 
-You may need to log into hub.docker.com first using the `docker login` command
-from the terminal. Without it, you cannot access `localhost` from port `8080`.
-Specifically, you have to build the container using s2i as outlined below and
-then start the container using the `docker run` command and not VS Code for it
-to run properly.
+## Stack
+
+- [Laravel 6.2](https://laravel.com/docs/6.x)
+- [Bootstrap 4.4.1](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Red Hat UBI8 PHP 7.3 Container Image](https://github.com/sclorg/s2i-php-container/tree/master/7.3)
+- [OpenShift Source-to-Image](https://github.com/openshift/source-to-image)
+- [Custom PHP 7.3 Image for C & J Towing](https://github.com/tap52384/c-and-j-towing)
+  - This image does not include the `sendmail` command which is used on GoDaddy for sending emails
 
 Here is how to clone the repository locally and build the image for use.
 
@@ -45,6 +48,12 @@ docker run \
 tap52384:c-and-j-towing
 ```
 
+You may need to log into hub.docker.com first using the `docker login` command
+from the terminal. Without it, you cannot access `localhost` from port `8080`.
+Specifically, you have to build the container using s2i as outlined below and
+then start the container using the `docker run` command and not VS Code for it
+to run properly.
+
 After using the `docker run` command, use this local URL to access the site:
 
 <http://localhost:8080>
@@ -65,9 +74,9 @@ docker start towing
 docker exec -it towing /bin/bash
 
 # If the images seem out of place, perhaps the JavaScript isn't loaded yet.
-# To be safe, run composer update first.
+# To be safe, run composer install first. If composer fails for some reason, then try composer update.
 # Updating the PHP packages is safer than updating the npm packages, so DON'T
-php composer.phar update
+php composer.phar install
 npm install
 npm run development
 ```
@@ -83,35 +92,6 @@ To update the packages, which worked where composer install failed:
 
 ```bash
 php composer.phar update
-```
-
-```bash
-# You can build the image without having to clone the repository locally
-# Uses the "master" branch for building the image
-mkdir -p ~/code
-cd ~/code
-git clone -q https://github.com/tap52384/c-and-j-towing.git
-# Create the .env file from the .env.example if one doesn't exist
-cp -nv .env.example .env
-docker build --pull https://github.com/tap52384/ubi8-php-73.git -t tap52384/ubi8-php-73:latest
-
-# Next, "re-build" the app using s2i (source-to-image)
-# Specify the /public/ folder as the Apache documentroot as needed for Laravel
-git clone -q https://github.com/tap52384/c-and-j-towing.git
-s2i build -e DOCUMENTROOT=/public/ ~/code/c-and-j-towing/ tap52384/ubi8-php-73:latest tap52384:c-and-j-towing
-
-# Stop and delete any containers based on the RedHat image
-docker rm -f $(docker ps -aq --filter ancestor=registry.access.redhat.com/ubi8/php-73 --format="{{.ID}}") || true
-
-# Create the container "towing" with the code folder mounted
-docker run \
---name towing \
--e USER=$(whoami) \
---hostname $(hostname) \
--d \
--p 8081:8080 \
--v ~/code/c-and-j-towing:/opt/app-root/src/ \
-tap52384:c-and-j-towing
 ```
 
 ## Available Towing Services + Laravel 6.x
@@ -145,8 +125,18 @@ REFERENCES states(ID) ON DELETE CASCADE;
 ssh -oHostKeyAlgorithms=+ssh-dss username@candjtowingservices.com
 ```
 
+This is how you simply update the code by pulling in the latest changes.
+
+```bash
+# Update the code by pulling the latest changes
+cd ~/code
+git checkout master
+git pull --rebase
+npm run production
+```
+
 This is how to perform the initial setup on the GoDaddy Linux server. If you
-need to simply update the code, a `git pull` as explained below is sufficient.
+need to simply update the code, a `git pull` as explained above is sufficient.
 
 ```bash
 # Clone the code repo then rename the folder
@@ -194,15 +184,7 @@ npm install
 npm run production
 ```
 
-This is how you simply update the code by pulling in the latest changes.
 
-```bash
-# Update the code by pulling the latest changes
-cd ~/code
-git checkout master
-git pull --rebase
-npm run production
-```
 
 ## Environment Variables
 
