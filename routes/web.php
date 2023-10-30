@@ -56,5 +56,15 @@ Route::get('/emails/contact', function() {
 });
 
 Route::get('/emails/bestbuy', function() {
+    $to_name = 'receiver';
+    $to_email = 'tap52384@gmail.com';
+    $data = array('name' => 'sender name', 'body' => 'a test email');
+    Mail::send('emails.bestbuy', $data, function($message) use ($to_name, $to_email) {
+
+            $message->to($to_email, $to_name)
+            ->subject('Laravel Test Mail');
+            $message->from('candjtowingnc@gmail.com', 'Test Mail');
+    });
+
     return view('emails.bestbuy');
 });

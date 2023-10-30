@@ -1,17 +1,16 @@
 # c-and-j-towing
 
-Website for C&amp;J Towing and Recovery
+Website for C &amp; J Towing and Recovery
 
 <https://candjtowingservices.com>
 
-Using the `docker run` command below, use this local URL:
-
-<http://localhost:8080>
-
-Here is how to clone the repository locally and build the image for use.
-
 You may need to log into hub.docker.com first using the `docker login` command
 from the terminal. Without it, you cannot access `localhost` from port `8080`.
+Specifically, you have to build the container using s2i as outlined below and
+then start the container using the `docker run` command and not VS Code for it
+to run properly.
+
+Here is how to clone the repository locally and build the image for use.
 
 ```bash
 # You can build the image without having to clone the image repository locally
@@ -44,8 +43,25 @@ docker run \
 -p 8080:8080 \
 -v ~/code/c-and-j-towing:/opt/app-root/src/ \
 tap52384:c-and-j-towing
+```
 
-# To create a Bash terminal into the running container called "towing"
+After using the `docker run` command, use this local URL to access the site:
+
+<http://localhost:8080>
+
+## Docker
+
+```bash
+# To list running containers
+docker ps
+
+# To list all containers, running or not
+docker ps -a
+
+# To start a stopped container named "towing"
+docker start towing
+
+# To open a Bash shell into a running container named "towing"
 docker exec -it towing /bin/bash
 
 # If the images seem out of place, perhaps the JavaScript isn't loaded yet.
@@ -56,8 +72,7 @@ npm install
 npm run development
 ```
 
-Make sure to just "install" the packages and not necessarily update them as this is using Laravel 6,
-which is old at this point.
+Make sure to just "install" the packages and not necessarily update them as this is using Laravel 6, which is super old at this point.
 
 ```bash
 # To install Composer packages using the `composer.phar` file included with the repo
@@ -199,6 +214,17 @@ set in order for everything to work, including a few that were added, such as:
 
 `MAIL_DRIVER` had to be changed to `sendmail` in order for mail to be sent from
 __GoDaddy__.
+
+> Note that "sendmail" is not available in the image created for development;
+> this was an unfortunate oversight and given that this image is at least 3
+> years old, it's not worth it to go through the trouble of rebuilding it and
+> account for missing packages.
+
+> Google increased the security on their Gmail accounts, which stopped delivery
+> of emails from the website; since there is no SSL certificate on the site, it
+> may be good to remove the question for the date-of-birth since that wouldn't
+> be on the resume anyway.
+> https://stackoverflow.com/a/73365201/1620794
 
 ## Logo
 

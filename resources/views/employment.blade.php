@@ -114,7 +114,7 @@
     </div>
 
     <div class="form-group">
-        <label for="inputGroupFileAddon01" class="font-weight-bold">Upload your resume (Microsoft Word, PDF)</label>
+        <label for="resume_file" class="font-weight-bold">Upload your resume (Microsoft Word, PDF)</label>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>

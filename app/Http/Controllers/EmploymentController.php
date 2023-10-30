@@ -124,7 +124,15 @@ class EmploymentController extends Controller
         // The Mailable EmploymentSubmitted needs to accept a second parameter
         // for the uploaded resume file
         // $employment->resume_file = $request->file('resume_file');
-        $employment->learned_about_us = implode(', ', $request->input('learned_about_us', ''));
+        $learnedAboutUs = $request->input('learned_about_us', []);
+
+        // There is no constructor for the implode() function that supports two strings as
+        // parameters; as a result, $request->input
+        if (is_array($learnedAboutUs)) {
+                $learnedAboutUs = implode(', ', $learnedAboutUs);
+        }
+
+        $employment->learned_about_us = $learnedAboutUs;
         # Removes all non-numeric
         $employment->phone = preg_replace("/[^0-9]/", "", $request->input('phone', ''));
 
@@ -137,7 +145,7 @@ class EmploymentController extends Controller
 
         $mail = new EmploymentSubmitted($employment, $resumeFile);
         // TODO: Uncomment this statement to actually send mail.
-        Mail::to($request->input('email'))
+        $mailSent = Mail::to($request->input('email'))
         ->bcc(env('MAIL_USERNAME'))
         ->bcc(explode(',', env('MAIL_BCC_RECIPIENTS')))
         ->send($mail);
