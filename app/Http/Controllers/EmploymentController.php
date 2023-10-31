@@ -64,7 +64,7 @@ class EmploymentController extends Controller
         // https://laravel.com/docs/6.x/validation#custom-error-messages
         $messages = [
             'resume_file.required' => 'Please upload your resume (Microsoft Word, PDF).',
-            'dob.required' => 'Date of birth must be given in format MM/DD/YYYY.'
+            // 'dob.required' => 'Date of birth must be given in format MM/DD/YYYY.'
         ];
 
         // https://laravel.com/docs/6.x/validation#quick-writing-the-validation-logic
@@ -81,7 +81,7 @@ class EmploymentController extends Controller
                 // https://laravel.com/docs/6.x/validation#rule-email
                 'email' => 'required|email:rfc',
                 'phone' => 'required|numeric',
-                'dob' => 'required|date_format:m/d/Y',
+                // 'dob' => 'required|date_format:m/d/Y',
                 'valid_license' => 'required|boolean',
                 // https://laravel.com/docs/6.x/validation#rule-mimes
                 // https://svn.apache.org/repos/asf/httpd/httpd/trunk/docs/conf/mime.types
@@ -113,7 +113,7 @@ class EmploymentController extends Controller
             'zip',
             'email',
             // 'phone',
-            'dob',
+            // 'dob',
             'valid_license',
             // 'resume_file',
             // 'learned_about_us'

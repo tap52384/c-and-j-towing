@@ -98,11 +98,11 @@
         </div>
     </div> <!-- /.form-row -->
     <div class="form-row mb-3">
-        <div class="col">
+        {{-- <div class="col">
             <label for="dob" class="font-weight-bold">Date of Birth</label>
             <input type="text" class="form-control use-datepicker" placeholder="MM/DD/YYYY" id="dob" name="dob" autocomplete="bday"
             value="{{ old('dob') }}" />
-        </div>
+        </div> --}}
         <div class="col">
             <label for="valid_license" class="font-weight-bold">Do you have a valid Driver's License?</label>
             <select class="form-control" id="valid_license" name="valid_license">
