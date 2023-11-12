@@ -6,8 +6,9 @@ Website for C &amp; J Towing and Recovery
 
 ## Stack
 
-- [Laravel 6.2](https://laravel.com/docs/6.x)
+- [Laravel 8.83.27](https://laravel.com/docs/8.x)
 - [Bootstrap 4.4.1](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Red Hat UBI9 PHP 8.1 Container Image](https://github.com/sclorg/s2i-php-container/tree/master/8.1)
 - [Red Hat UBI8 PHP 7.3 Container Image](https://github.com/sclorg/s2i-php-container/tree/master/7.3)
 - [OpenShift Source-to-Image](https://github.com/openshift/source-to-image)
 - [Custom PHP 7.3 Image for C & J Towing](https://github.com/tap52384/c-and-j-towing)
@@ -191,6 +192,20 @@ cd ~/code
 npm install
 npm run production
 ```
+
+### Sending mail via Gmail from GoDaddy
+
+It seems that you must specify a DNS setting from GoDaddy to continue sending mail via the Gmail
+account called an Server Policy Framework record (SPF). This is a type of DNS record that can help
+identify which mail servers are permitted to send email on behalf of your domain.
+
+- [GoDaddy - Add an SPF Record](https://www.godaddy.com/help/add-an-spf-record-19218)
+- [Google - Add your SPF record at your domain provider](https://support.google.com/a/answer/10684623?hl=en)
+
+This site originally using Microsoft 365 for email, so there is already a TXT type record there.
+
+Follow the instructions [on GoDaddy's documentation](https://www.godaddy.com/help/add-an-spf-record-19218)
+to add the updated TXT records. Each change requires a 6-digit code sent to the email address associated with the GoDaddy account.
 
 ## Environment Variables
 
