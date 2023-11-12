@@ -68,3 +68,11 @@ Route::get('/emails/bestbuy', function() {
 
     return view('emails.bestbuy');
 });
+
+Route::get('/email/settings', function() {
+    var_dump(Config::get('mail'));
+    echo '<p>mail port: ' . config('mail.port') . '</p>';
+    echo '<p>mail driver: ' . config('mail.driver') . '</p>';
+    echo config('mail.username');
+    exit;
+});

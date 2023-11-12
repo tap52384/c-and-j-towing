@@ -171,9 +171,17 @@ source ~/.bash_profile
 nvm --version
 # Use nvm to install Node.js (npm, node)
 # Due to missing requirements (like GLIBCXX_3.4.14), you have to install
-# an older version of node, but hopefully not too old:
+# an older version of node that was released on 12/17/2019.
+# Unfortunately, this is still true in 2023.
 # https://stackoverflow.com/a/57798787/1620794
 # https://nodejs.org/en/download/releases/
+# https://nodejs.org/en/about/previous-releases
+# Additionally, we cannot upgrade Node due to packages used by Laravel 7.x and
+# later due to a dependency on globalThis, which requires at least Node.js 12.0.0:
+# https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis
+# Therefore, unless changing the PHP version of the GoDaddy server adds the packages
+# required by newer versions of Node.js, we must remain on Laravel 6.x, which
+# is very old at this point.
 nvm install 8.17.0
 # Verify node and npm are installed
 node -v
@@ -183,8 +191,6 @@ cd ~/code
 npm install
 npm run production
 ```
-
-
 
 ## Environment Variables
 

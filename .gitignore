@@ -40,7 +40,7 @@ Homestead.json
 .composer
 .npm
 .DS_Store
-composer.phar
+# composer.phar
 public/css
 public/js
 /.vscode-server
@@ -51,3 +51,5 @@ public/js
 .devcontainer/.updateContentCommandMarker
 .local/
 .ssh/
+.bash_profile
+.nvm/
